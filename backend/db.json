@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "jdoe@gmail.com",
+      "username": "jd",
+      "password": "j",
+      "primary_key": ""
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jsmith@gmail.com",
+      "username": "jane_smith",
+      "password": "securepass"
+    },
+    {
+      "id": "5b99d399-fcd4-4d26-860b-6a1b53466244",
+      "name": "po",
+      "email": "p@gmail.com",
+      "username": "op",
+      "password": "p"
+    }
+  ]
+}
