@@ -4,17 +4,6 @@ import './styling/Food.css';
 
 function Food() {
 
-  // const CommentsSection = () => {
-  //   return (
-  //     <Conversation
-  //       spotId="sp_5esW6NWZ"
-  //       postId="food"
-  //       articleTags={['tag1', 'tag2', 'tag3']}
-  //       postUrl="http://www.example.com"
-  //     />
-  //   );
-  // };
-
   return (
     <div className="food-container">
       <main className="food-content">

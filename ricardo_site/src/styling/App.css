@@ -54,15 +54,6 @@ body {
   justify-content: center;
 }
 
-/* Footer Styles */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  margin-top: 40px;
-}
-
 footer p {
   margin: 0;
   font-size: 0.9rem;

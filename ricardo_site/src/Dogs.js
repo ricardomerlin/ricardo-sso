@@ -1,7 +1,10 @@
 import React from 'react';
 import './styling/Dogs.css';
 
-function Dogs() {
+function Dogs({ page }) {
+
+  console.log('I AM ON THE CORRECT DOGS PAGE')
+
   return (
     <div className="dogs-container">
       <main className="dogs-content">
@@ -20,10 +23,6 @@ function Dogs() {
             As our understanding of dogs deepens, so does our appreciation for their unique qualities. Each breed, from the tiniest Chihuahua to the largest Great Dane, has its own characteristics and traits, offering something special to dog lovers of all kinds. Whether providing companionship or performing critical tasks, dogs enrich our lives in countless ways, embodying the essence of loyalty, love, and joy.
           </p>
         </section>
-        <div 
-            data-spotim-module="conversation" 
-            data-post-id="dogs">
-        </div>
       </main>
     </div>
   );

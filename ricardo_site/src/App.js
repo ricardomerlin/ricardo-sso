@@ -6,6 +6,7 @@ import Food from './Food';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
+import Page from './Page';
 import './styling/App.css';
 import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import { startTTH } from '@open-web/react-sdk';
@@ -14,6 +15,8 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [pages, setPages] = useState(['Robots', 'Food', 'Dogs'])
+  const [selectedPage, setSelectedPage] = useState('')
   const navigate = useNavigate()
 
   console.log(loggedIn);
@@ -47,7 +50,44 @@ function App() {
     console.log(loggedIn);
   }, [loggedIn]);
 
+  const mappedPageLinks = () => {
+    return pages.map((page, index) => (
+      <Link key={index} to={page} page={page} onClick={() => switchCurrentPage(page)}>
+        {page}
+      </Link>
+    ));
+  };  
 
+  const mappedPageRoutes = () => {
+    return pages.map((page, index) => {
+      let Component;
+      switch (page) {
+        case 'Robots':
+          Component = Robots;
+          break;
+        case 'Dogs':
+          Component = Dogs;
+          break;
+        case 'Food':
+          Component = Food;
+          break;
+        default:
+          Component = Page;
+      }
+      return <Route key={index} path={`/${page}`} element={<Component />} />;
+    });
+  };
+  
+
+  const switchCurrentPage = (value) => {
+    setSelectedPage(value)
+  }
+
+  const goToNonArticle = () => {
+    setSelectedPage(null)
+  }
+
+  console.log(selectedPage)
 
   return (
     <>
@@ -56,30 +96,26 @@ function App() {
       </header>
 
       <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/robots">Robots</Link>
-        <Link to="/food">Food</Link>
-        <Link to="/dogs">Dogs</Link>
-        {!loggedIn ? <Link to="/login">Login</Link> : <Link onClick={handleLogout}>Logout</Link>}
+        <Link to="/" onClick={goToNonArticle}>Home</Link>
+        {mappedPageLinks()}
+        {!loggedIn ? <Link to="/login" onClick={goToNonArticle}>Login</Link> : <Link onClick={handleLogout}>Logout</Link>}
       </nav>
 
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/robots" element={<Robots />} />
-          <Route path="/food" element={<Food />} />
-          <Route path="/dogs" element={<Dogs />} />
+          {mappedPageRoutes()}
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
       </main>
-        <OpenWebProvider spotId='sp_5esW6NWZ'>
-          <Conversation postId='food' articleTags={['tag1','tag2','tag3']} postUrl='http://localhost:3000/food' />
-          {/* <Conversation postId='example2' articleTags={['tag1','tag2','tag3']} postUrl='http://localhost:3000/food' /> */}
-        </OpenWebProvider>
-      <footer>
-        <p>© 2024 My Website. All rights reserved. Chicken McNuggets.</p>
-      </footer>
+      {selectedPage ? 
+      <OpenWebProvider spotId='sp_5esW6NWZ'>
+        <Conversation postId={selectedPage} articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
+      </OpenWebProvider>
+      :
+      null
+      }
     </>
   );
 }
