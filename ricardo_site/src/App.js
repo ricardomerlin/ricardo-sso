@@ -47,7 +47,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(loggedIn);
+    login();
   }, [loggedIn]);
 
   const mappedPageLinks = () => {
@@ -87,7 +87,34 @@ function App() {
     setSelectedPage(null)
   }
 
-  console.log(selectedPage)
+
+  const login = () => {
+    const userToken = localStorage.getItem('token')
+    startTTH({ userToken, performBEDHandshakeCallback });
+  };
+  
+  const performBEDHandshakeCallback = async (codeA: string) => {
+    const userToken = localStorage.getItem('token')
+    console.log('I HAVE A USER TOKEN! ABOUT TO FETCH')
+    console.log(codeA)
+    const { code_b: codeB } = await fetch(`http://localhost:3001/start-handshake`, {
+      method: 'POST',
+      body: JSON.stringify({
+        // codeA that the callback gets and should be passed to OW's BED
+        code_a: codeA,
+        // We want to let the BED we want to login with a certain user - that is, the user we should do the BED handshake with OW.
+        userToken,
+      }),
+    }).then(function (res) {
+      return res.json();
+    });
+  
+    // codeB has been received from OW's BED and it is returned to OW's client to complete the handshake.
+    return codeB;
+  };
+
+
+
 
   return (
     <>
@@ -108,14 +135,14 @@ function App() {
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-      </main>
       {selectedPage ? 
       <OpenWebProvider spotId='sp_5esW6NWZ'>
-        <Conversation postId={selectedPage} articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
+        <Conversation postId={selectedPage} className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
       </OpenWebProvider>
       :
       null
       }
+      </main>
     </>
   );
 }

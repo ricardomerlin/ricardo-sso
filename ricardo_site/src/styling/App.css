@@ -3,7 +3,7 @@ body {
   font-family: 'Arial', sans-serif; /* Default font for general text */
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
 }
 
 /* Header Styles */
@@ -71,3 +71,13 @@ footer p {
   line-height: 1.7;
   color: #555;
 }
+
+/* .owConvContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.owConv {
+  width: 50%;
+} */

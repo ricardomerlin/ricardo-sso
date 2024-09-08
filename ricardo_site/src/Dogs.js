@@ -3,8 +3,6 @@ import './styling/Dogs.css';
 
 function Dogs({ page }) {
 
-  console.log('I AM ON THE CORRECT DOGS PAGE')
-
   return (
     <div className="dogs-container">
       <main className="dogs-content">
