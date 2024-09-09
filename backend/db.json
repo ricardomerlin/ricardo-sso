@@ -1,26 +1,15 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "jdoe@gmail.com",
-      "username": "jd",
-      "password": "j",
-      "primary_key": ""
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "jsmith@gmail.com",
-      "username": "jane_smith",
-      "password": "securepass"
-    },
-    {
       "id": "5b99d399-fcd4-4d26-860b-6a1b53466244",
       "name": "po",
       "email": "p@gmail.com",
       "username": "op",
-      "password": "p"
+      "password": "p",
+      "display_name": "s",
+      "email_verified": false,
+      "image_url": "https://joyrideharness.com/cdn/shop/articles/AdobeStock_274099078.jpg?v=1620400547",
+      "private_profile": false
     }
   ]
 }

@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     login();
-  }, [loggedIn]);
+  }, []);
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
@@ -93,25 +93,49 @@ function App() {
     startTTH({ userToken, performBEDHandshakeCallback });
   };
   
-  const performBEDHandshakeCallback = async (codeA: string) => {
-    const userToken = localStorage.getItem('token')
-    console.log('I HAVE A USER TOKEN! ABOUT TO FETCH')
-    console.log(codeA)
-    const { code_b: codeB } = await fetch(`http://localhost:3001/start-handshake`, {
-      method: 'POST',
-      body: JSON.stringify({
-        // codeA that the callback gets and should be passed to OW's BED
-        code_a: codeA,
-        // We want to let the BED we want to login with a certain user - that is, the user we should do the BED handshake with OW.
-        userToken,
-      }),
-    }).then(function (res) {
-      return res.json();
-    });
+  const performBEDHandshakeCallback = async (codeA) => {
+    const userString = localStorage.getItem('user');
   
-    // codeB has been received from OW's BED and it is returned to OW's client to complete the handshake.
-    return codeB;
+    if (userString) {
+      const userToken = JSON.parse(userString);
+  
+      console.log(userToken.id);
+      console.log(codeA);
+  
+      try {
+        console.log('WOW THIS IS UNIQUE')
+        const response = await fetch(`http://localhost:3001/start-handshake`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            code_a: codeA,
+            userToken: userToken,
+          }),
+        });
+  
+        if (!response.ok) {
+          console.log('RESPONSE WAS NOT AT ALL OK')
+          throw new Error('Failed to complete handshake');
+        }
+  
+        const { code_b: codeB } = await response.json();
+
+        console.log(codeB, 'CODE B')
+  
+        return codeB;
+  
+      } catch (error) {
+        console.error('Error during handshake:', error);
+      }
+  
+    } else {
+      console.log('No user found in localStorage');
+    }
   };
+  
+  
 
 
 
