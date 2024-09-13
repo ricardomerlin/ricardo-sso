@@ -6,7 +6,7 @@ function Home() {
     <div className="home-container">
       <main className="home-content">
         <section className="home-section">
-          <h2>The Art and Science of Building Houses</h2>
+          <h2>Ricardo's SSO Site</h2>
           <p>
             Hi, this is my SSO site. It is in the very earliest stages of development, so you might encounter bugs, poor styling, or missing features. Be patient, geez.
           </p>
