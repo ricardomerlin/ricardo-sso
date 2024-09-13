@@ -64,7 +64,7 @@ function App() {
   };
 
   const performBEDHandshakeCallback = async (codeA) => {
-    const res = await fetch(`http://localhost:3001/start-handshake`, {
+    const res = await fetch(`https://ricardo-sso.onrender.com/start-handshake`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
