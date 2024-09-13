@@ -68,47 +68,25 @@ app.post('/users', (req, res) => {
 app.post('/start-handshake', async (req, res) => {
   const { code_a, userToken } = req.body;
 
-  console.log(userToken, 'HERE IS THE USER TOKEN')
+    console.log(req.body.code_a)
 
-  try {
-    const checkUser = await fetch(`https://www.spot.im/api/sso/v1/user/${userToken.id}`, {
-      method: 'GET',
+    console.log(code_a)
+
+    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&private_profile=${userToken.privateProfile}`, {
+      method: 'Get',
       headers: {
         'accept': 'application/json',
+        'content-type': 'application/json',
         'x-spotim-sso-access-token': ssoToken,
-      },
+      }
     });
 
-    const userData = await checkUser.json();
+    console.log(response)
 
-    if (userData.success === false) {
-      console.log('CHECK USER WAS NOT OK. THIS MEANS A NEW USER NEEDS TO BE REGISTERED.')
-      const response = await fetch(`https://www.spot.im/api/sso/v1/user?primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&private_profile=${userToken.privateProfile}`, {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'content-type': 'application/json',
-          'x-spotim-sso-access-token': ssoToken,
-        }
-      });
-
-      const userRegistered = await response.json();
-      console.log(userRegistered, 'HERE IS THE USER REGISTERED')
-    } else {
-      console.log('CHECK USER WAS GOOD. A NEW USER DOES NOT NEED TO BE REGISTERED WITH OW.')
-    }
-
-    console.log('HERE IS THE USER DATA',userData)
-
-
-
-    // res.json({ code_b });
-
-  } catch (error) {
-    console.error('Error during user check:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+    const code_b = await response.text()
+    console.log('HERE IS THE CODEB:', code_b )
+    return code_b
+  })
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;

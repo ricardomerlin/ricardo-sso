@@ -93,47 +93,55 @@ function App() {
     startTTH({ userToken, performBEDHandshakeCallback });
   };
   
-  const performBEDHandshakeCallback = async (codeA) => {
-    const userString = localStorage.getItem('user');
-  
-    if (userString) {
-      const userToken = JSON.parse(userString);
-  
-      console.log(userToken.id);
-      console.log(codeA);
-  
-      try {
-        console.log('WOW THIS IS UNIQUE')
-        const response = await fetch(`http://localhost:3001/start-handshake`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            code_a: codeA,
-            userToken: userToken,
-          }),
-        });
-  
-        if (!response.ok) {
-          console.log('RESPONSE WAS NOT AT ALL OK')
-          throw new Error('Failed to complete handshake');
-        }
-  
-        const { code_b: codeB } = await response.json();
+  const userString = localStorage.getItem('user');
+  const userToken = JSON.parse(userString);
 
-        console.log(codeB, 'CODE B')
-  
-        return codeB;
-  
-      } catch (error) {
-        console.error('Error during handshake:', error);
-      }
-  
-    } else {
-      console.log('No user found in localStorage');
-    }
+  const performBEDHandshakeCallback = async (codeA) => {
+    console.log('PHEIED WOIQEI GWONI R')
+    const { code_b: codeB } = await fetch(`http://localhost:3001/start-handshake`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code_a: codeA,
+        userToken: userToken,
+      }),
+    }).then(function(res) {
+      return res.json();
+    })
+
+    console.log('WE ARE AT THE END OF THE FUNCTION')
+
+    return codeB;
+
+    // return 'chicken';
   };
+
+
+  // const performBEDHandshakeCallback() {
+  //   var callback = function(codeA, completeSSOCallback) {
+  //     fetch(`http://localhost:3001/start-handshake`, {
+  //       method: 'POST',
+  //       // headers: {
+  //       //   'Content-Type': 'application/json',
+  //       // },
+  //       body: JSON.stringify({
+  //         code_a: codeA,
+  //         userToken: userToken,
+  //       }),
+  //     })
+  //     .then(res => res.json()).then(codeB => {
+  //       if (codeB) {
+  //         completeSSOCallback(codeB)
+  //       }
+  //     })
+  //     .catch(err => {
+  //       completeSSOCallback(null, err)
+  //     })
+  //   }
+  //   window.SPOTIM.performBEDHandshakeCallback({callback: callback, userId: userToken}).then()
+  // }
   
   
 
