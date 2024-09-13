@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './styling/Signup.css';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [imageURL, setImageURL] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,7 +20,11 @@ function Signup() {
       email: email,
       username: username,
       password: password,
-      name: name
+      name: name,
+      display_name: username,
+      email_verified: false,
+      image_url: imageURL,
+      private_profile: false
     };
 
     console.log(newUser)
@@ -36,6 +43,7 @@ function Signup() {
         console.log('response was ok')
         const createdUser = await response.json();
         console.log('User created:', createdUser);
+        navigate('/login')
       } else {
         console.error('Failed to create user');
       }
@@ -86,6 +94,16 @@ function Signup() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="imageURL">Image URL</label>
+            <input
+              type="imageURL"
+              id="imageURL"
+              value={imageURL}
+              onChange={(e) => setImageURL(e.target.value)}
               required
             />
           </div>

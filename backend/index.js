@@ -48,13 +48,15 @@ app.post('/users', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
     if (err) return res.status(500).send('Internal Server Error');
     const db = JSON.parse(data);
-    
+
     const newUser = {
       id: uuidv4(),
-      ...req.body
+      ...req.body,
+      privateProfile: req.body.privateProfile || false,
+      email_verified: req.body.email_verified || false,
     };
 
-    console.log(newUser)
+    console.log(newUser);
 
     db.users.push(newUser);
 
@@ -68,12 +70,12 @@ app.post('/users', (req, res) => {
 app.post('/start-handshake', async (req, res) => {
   const { code_a, userToken } = req.body;
 
-    console.log(req.body.code_a)
+  console.log(req.body.code_a);
+  console.log(code_a);
 
-    console.log(code_a)
-
+  try {
     const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&private_profile=${userToken.privateProfile}`, {
-      method: 'Get',
+      method: 'GET',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
@@ -81,12 +83,16 @@ app.post('/start-handshake', async (req, res) => {
       }
     });
 
-    console.log(response)
+    const code_b = await response.text();
+    console.log('HERE IS THE CODEB:', code_b);
 
-    const code_b = await response.text()
-    console.log('HERE IS THE CODEB:', code_b )
-    return code_b
-  })
+    res.send(code_b);
+    console.log('codeB was sent to FE');
+  } catch (error) {
+    console.error('Error fetching code_b:', error);
+    res.status(500).send('Error occurred');
+  }
+});
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;

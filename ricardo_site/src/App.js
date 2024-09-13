@@ -10,29 +10,14 @@ import Page from './Page';
 import './styling/App.css';
 import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import { startTTH } from '@open-web/react-sdk';
+import { logout } from '@open-web/react-sdk';
 
 function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [pages, setPages] = useState(['Robots', 'Food', 'Dogs'])
-  const [selectedPage, setSelectedPage] = useState('')
-  const navigate = useNavigate()
-
-  console.log(loggedIn);
-  console.log(user);
-
-  const handleLogin = (value, userInfo) => {
-    setLoggedIn(value);
-    setUser(userInfo);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setLoggedIn(false);
-    setUser(null);
-  };
+  const [pages, setPages] = useState(['Robots', 'Food', 'Dogs']);
+  const [selectedPage, setSelectedPage] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -41,14 +26,58 @@ function App() {
       setLoggedIn(true);
       setUser(user);
     } else {
-      setLoggedIn(false)
-      setUser(null)
+      setLoggedIn(false);
+      setUser(null);
     }
-  }, []);
 
-  useEffect(() => {
+    document.addEventListener('spot-im-login-start', function(event) {
+      console.log('spot-im-login-start event detected!');
+      navigate('/login');
+    });
+
+    return () => {
+      document.removeEventListener('spot-im-login-start', () => {});
+    };
+  }, [navigate]);
+
+  const handleLogin = (value, userInfo) => {
+    setLoggedIn(value);
+    setUser(userInfo);
     login();
-  }, []);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setLoggedIn(false);
+    setUser(null);
+    logoutFromOw();
+  };
+
+  const login = () => {
+    const userToken = localStorage.getItem('token');
+    startTTH({ userToken, performBEDHandshakeCallback });
+  };
+  
+  const logoutFromOw = () => {
+    logout();
+  };
+
+  const performBEDHandshakeCallback = async (codeA) => {
+    const res = await fetch(`http://localhost:3001/start-handshake`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code_a: codeA,
+        userToken: JSON.parse(localStorage.getItem('user')),
+      }),
+    });
+  
+    const codeB = await res.text();
+    return codeB;
+  };
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
@@ -56,7 +85,7 @@ function App() {
         {page}
       </Link>
     ));
-  };  
+  };
 
   const mappedPageRoutes = () => {
     return pages.map((page, index) => {
@@ -77,76 +106,14 @@ function App() {
       return <Route key={index} path={`/${page}`} element={<Component />} />;
     });
   };
-  
 
   const switchCurrentPage = (value) => {
-    setSelectedPage(value)
-  }
+    setSelectedPage(value);
+  };
 
   const goToNonArticle = () => {
-    setSelectedPage(null)
-  }
-
-
-  const login = () => {
-    const userToken = localStorage.getItem('token')
-    startTTH({ userToken, performBEDHandshakeCallback });
+    setSelectedPage(null);
   };
-  
-  const userString = localStorage.getItem('user');
-  const userToken = JSON.parse(userString);
-
-  const performBEDHandshakeCallback = async (codeA) => {
-    console.log('PHEIED WOIQEI GWONI R')
-    const { code_b: codeB } = await fetch(`http://localhost:3001/start-handshake`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        code_a: codeA,
-        userToken: userToken,
-      }),
-    }).then(function(res) {
-      return res.json();
-    })
-
-    console.log('WE ARE AT THE END OF THE FUNCTION')
-
-    return codeB;
-
-    // return 'chicken';
-  };
-
-
-  // const performBEDHandshakeCallback() {
-  //   var callback = function(codeA, completeSSOCallback) {
-  //     fetch(`http://localhost:3001/start-handshake`, {
-  //       method: 'POST',
-  //       // headers: {
-  //       //   'Content-Type': 'application/json',
-  //       // },
-  //       body: JSON.stringify({
-  //         code_a: codeA,
-  //         userToken: userToken,
-  //       }),
-  //     })
-  //     .then(res => res.json()).then(codeB => {
-  //       if (codeB) {
-  //         completeSSOCallback(codeB)
-  //       }
-  //     })
-  //     .catch(err => {
-  //       completeSSOCallback(null, err)
-  //     })
-  //   }
-  //   window.SPOTIM.performBEDHandshakeCallback({callback: callback, userId: userToken}).then()
-  // }
-  
-  
-
-
-
 
   return (
     <>
@@ -167,13 +134,13 @@ function App() {
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-      {selectedPage ? 
-      <OpenWebProvider spotId='sp_5esW6NWZ'>
-        <Conversation postId={selectedPage} className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
-      </OpenWebProvider>
-      :
-      null
-      }
+        {selectedPage ? 
+        <OpenWebProvider spotId='sp_5esW6NWZ'>
+          <Conversation postId={selectedPage} className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
+        </OpenWebProvider>
+        :
+        null
+        }
       </main>
     </>
   );

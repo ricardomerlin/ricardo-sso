@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styling/Login.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';  // Import Link
 import { startTTH } from '@open-web/react-sdk';
 
 function Login({ handleLogin }) {
@@ -63,6 +63,9 @@ function Login({ handleLogin }) {
           </div>
           <button type="submit" className="login-button">Login</button>
         </form>
+        <div className="signup-prompt">
+          <p>Not a member? <Link to="/signup">Signup</Link></p>
+        </div>
       </div>
     </div>
   );

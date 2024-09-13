@@ -1,12 +1,10 @@
-/* General Styles */
 body {
-  font-family: 'Arial', sans-serif; /* Default font for general text */
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   /* background-color: #f7f7f7; */
 }
 
-/* Header Styles */
 .home-header {
   background-color: #007bff;
   color: white;
@@ -19,7 +17,6 @@ body {
   margin: 0;
 }
 
-/* Navigation Styles */
 .navbar {
   display: flex;
   justify-content: center;

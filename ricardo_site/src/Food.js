@@ -22,7 +22,6 @@ function Food() {
             Food is also a medium of creativity, where chefs and home cooks alike can experiment with flavors, textures, and presentations. The art of cooking and the pleasure of eating are universal, transcending language and borders. Whether you're a seasoned foodie or someone who simply enjoys a good meal, the world of food offers endless possibilities to explore, enjoy, and savor.
           </p>
         </section>
-        {/* {CommentsSection()} */}
       </main>
     </div>
   );
