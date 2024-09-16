@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styling/Login.css';
-import { useNavigate, Link } from 'react-router-dom';  // Import Link
-import { startTTH } from '@open-web/react-sdk';
+import { useNavigate, Link } from 'react-router-dom';
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, checkLoading, loading }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      const response = await fetch('https://ricardo-sso.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
-      console.log(data)
-
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-
-        handleLogin(true, data.user);
-
-        navigate('/');
-      } else {
-        alert('Login failed. Please check your credentials.');
-      }
-    } catch (error) {
-      console.error('Error logging in:', error);
-      alert('An error occurred during login. Please try again later.');
-    }
+    checkLoading(true);
   };
+
+  console.log(loading)
+
+  useEffect(() => {
+    const loginAttempt = async () => {
+      if (loading === true) {
+        console.log('starting')
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        try {
+          const response = await fetch('https://ricardo-sso.onrender.com/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+          });
+          const data = await response.json();
+
+          if (data.token) {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            checkLoading(false);
+            handleLogin(true, data.user);
+            navigate('/');
+          } else {
+            alert('Login failed. Please check your credentials.');
+            checkLoading(false);
+          }
+        } catch (error) {
+          console.error('Error logging in:', error);
+          alert('An error occurred during login. Please try again later.');
+          checkLoading(false);
+        }
+      }
+    };
+
+    loginAttempt();
+  }, [loading, username, password, navigate, handleLogin]);
 
   return (
     <div className="login-container">
@@ -63,6 +75,10 @@ function Login({ handleLogin }) {
           </div>
           <button type="submit" className="login-button">Login</button>
         </form>
+
+        {/* Show the spinner when loading is true */}
+        {loading && <div className="spinner"></div>}
+
         <div className="signup-prompt">
           <p>Not a member? <Link to="/signup">Signup</Link></p>
         </div>

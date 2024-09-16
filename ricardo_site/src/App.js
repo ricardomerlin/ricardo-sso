@@ -7,6 +7,7 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import Page from './Page';
+import Profile from './Profile'
 import './styling/App.css';
 import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import { startTTH } from '@open-web/react-sdk';
@@ -17,6 +18,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [pages, setPages] = useState(['Robots', 'Food', 'Dogs']);
   const [selectedPage, setSelectedPage] = useState('');
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +48,8 @@ function App() {
     login();
   };
 
+  const userToken = localStorage.getItem('token');
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -55,13 +59,19 @@ function App() {
   };
 
   const login = () => {
-    const userToken = localStorage.getItem('token');
     startTTH({ userToken, performBEDHandshakeCallback });
   };
   
   const logoutFromOw = () => {
     logout();
   };
+
+  const checkLoading = (value) => {
+    console.log(value)
+    setLoading(value)
+  }
+
+  console.log(loading)
 
   const performBEDHandshakeCallback = async (codeA) => {
     const res = await fetch(`https://ricardo-sso.onrender.com/start-handshake`, {
@@ -81,11 +91,24 @@ function App() {
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
-      <Link key={index} to={page} page={page} onClick={() => switchCurrentPage(page)}>
+      <Link
+        key={index}
+        to={loading ? "#" : page}
+        className={loading ? 'disabled-link' : ''}
+        page={page}
+        onClick={(e) => {
+          if (!loading) {
+            switchCurrentPage(page);
+          } else {
+            e.preventDefault();
+          }
+        }}
+      >
         {page}
       </Link>
     ));
   };
+  
 
   const mappedPageRoutes = () => {
     return pages.map((page, index) => {
@@ -122,17 +145,61 @@ function App() {
       </header>
 
       <nav className="navbar">
-        <Link to="/" onClick={goToNonArticle}>Home</Link>
+        <Link
+          to={loading ? "#" : "/"}
+          className={loading ? 'disabled-link' : ''}
+          onClick={(e) => {
+            if (!loading) {
+              goToNonArticle();
+            } else {
+              e.preventDefault();
+            }
+          }}
+        >
+          Home
+        </Link>
+        
         {mappedPageLinks()}
-        {!loggedIn ? <Link to="/login" onClick={goToNonArticle}>Login</Link> : <Link onClick={handleLogout}>Logout</Link>}
+        
+        {!loggedIn ? (
+          <Link
+            to={loading ? "#" : "/login"}
+            className={loading ? 'disabled-link' : ''}
+            onClick={(e) => {
+              if (!loading) {
+                goToNonArticle();
+              } else {
+                e.preventDefault();
+              }
+            }}
+          >
+            Login
+          </Link>
+        ) : (
+          <Link
+            to="#"
+            className={loading ? 'disabled-link' : ''}
+            onClick={(e) => {
+              if (!loading) {
+                handleLogout();
+              } else {
+                e.preventDefault();
+              }
+            }}
+          >
+            Logout
+          </Link>
+        )}
       </nav>
+
 
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           {mappedPageRoutes()}
-          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} checkLoading={checkLoading} loading={loading}/>} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         {selectedPage ? 
         <OpenWebProvider spotId='sp_5esW6NWZ'>

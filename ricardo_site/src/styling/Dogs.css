@@ -1,8 +1,3 @@
-.dogs-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
   .dogs-content {
     flex: 1;
     padding: 20px;

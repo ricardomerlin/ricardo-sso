@@ -47,8 +47,10 @@ body {
   /* max-width: 800px; */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  display: flex;
   justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 footer p {
@@ -69,12 +71,6 @@ footer p {
   color: #555;
 }
 
-/* .owConvContainer {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
 .owConv {
-  width: 50%;
-} */
+  width: 80%
+}

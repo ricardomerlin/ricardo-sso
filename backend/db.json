@@ -46,14 +46,17 @@
     },
     {
       "id": "1ae3b490-fd0a-4df9-8c60-c549ecf6ebd1",
-      "name": "q",
-      "email": "q@gmail.com",
-      "username": "q",
+      "name": "Ricardo LONG ASS NAME",
+      "email": "qdonkey@gmail.com",
+      "username": "Chicken Nuggets",
       "password": "q",
       "display_name": "q",
       "email_verified": false,
       "image_url": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
-      "private_profile": false
+      "private_profile": false,
+      "displayName": "Ugly Stinky",
+      "imageURL": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
+      "privateProfile": false
     }
   ]
 }

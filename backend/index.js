@@ -127,6 +127,27 @@ app.post('/login', (req, res) => {
     });
   });
 
+app.patch('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  const updatedData = req.body;
+
+  fs.readFile(dbPath, 'utf8', (err, data) => {
+      if (err) return res.status(500).send('Internal Server Error');
+      const db = JSON.parse(data);
+      const userIndex = db.users.findIndex(user => user.id === userId);
+
+      if (userIndex === -1) return res.status(404).send('User Not Found');
+
+      db.users[userIndex] = { ...db.users[userIndex], ...updatedData };
+
+      fs.writeFile(dbPath, JSON.stringify(db, null, 2), 'utf8', (err) => {
+          if (err) return res.status(500).send('Internal Server Error');
+          res.json(db.users[userIndex]);
+      });
+  });
+});
+
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
