@@ -121,7 +121,8 @@ app.post('/login', (req, res) => {
           displayName: user.display_name,
           email_verified: user.email_verified,
           imageURL: user.image_url,
-          privateProfile: user.private_profile
+          privateProfile: user.private_profile,
+          is_blocked: user.is_blocked
         }
       });
     });
