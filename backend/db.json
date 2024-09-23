@@ -56,7 +56,8 @@
       "private_profile": false,
       "displayName": "Ugly Stinky",
       "imageURL": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
-      "privateProfile": false
+      "privateProfile": false,
+      "is_blocked": true
     }
   ]
 }
