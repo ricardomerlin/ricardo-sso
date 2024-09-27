@@ -8,6 +8,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Page from './Page';
 import Profile from './Profile'
+import Debugging from './Debugging';
 import './styling/App.css';
 import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import { startTTH } from '@open-web/react-sdk';
@@ -20,6 +21,8 @@ function App() {
   const [selectedPage, setSelectedPage] = useState('');
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
+
+  console.log(selectedPage)
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -160,6 +163,11 @@ function App() {
         </Link>
         
         {mappedPageLinks()}
+
+        <Link
+          to={'/debugging'}
+          className='debugging'
+        >Debugging</Link>
         
         {!loggedIn ? (
           <Link
@@ -200,6 +208,7 @@ function App() {
           <Route path="/login" element={<Login handleLogin={handleLogin} checkLoading={checkLoading} loading={loading}/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/debugging" element={<Debugging />} />
         </Routes>
         {selectedPage ? 
         <OpenWebProvider spotId='sp_5esW6NWZ'>
