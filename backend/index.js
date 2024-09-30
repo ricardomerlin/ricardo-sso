@@ -28,7 +28,7 @@ app.use(express.json());
 
 app.get('/users', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
-    if (err) return res.status(500).send('Internal Server Error');
+    if (err) return res.status(500).send('Server Error');
     const db = JSON.parse(data);
     res.json(db.users);
   });
@@ -36,13 +36,21 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
-    if (err) return res.status(500).send('Internal Server Error');
+    if (err) return res.status(500).send('Server Error');
     const db = JSON.parse(data);
     const user = db.users.find(u => u.id === parseInt(req.params.id));
     if (!user) return res.status(404).send('User Not Found');
     res.json(user);
   });
 });
+
+app.get('/sso_errors', (req, res) => {
+  fs.readFile(dbPath), 'utf8', (err, data) => {
+    if (err) return res.status(500).send('Server Error');
+    const db = JSON.parse(data)
+    res.json(db.sso_errors)
+  }
+})
 
 app.post('/users', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {

@@ -1,8 +1,21 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 // import './styling/Debugging.css';
 
 function Debugging({  }) {
+
+  useEffect(() => {
+    getSSOErrors()
+  }, [])
+
+  const getSSOErrors = () => {
+    fetch('https://ricardo-sso.onrender.com/sso_errors')
+  }
+
+
+
+
   return (
     <HelmetProvider>
       <div className="debugging-container">
