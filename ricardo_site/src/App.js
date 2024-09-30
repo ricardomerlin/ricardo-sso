@@ -167,6 +167,7 @@ function App() {
         <Link
           to={'/debugging'}
           className='debugging'
+          onClick={() => goToNonArticle()}
         >Debugging</Link>
         
         {!loggedIn ? (

@@ -59,5 +59,11 @@
       "privateProfile": false,
       "is_blocked": true
     }
+  ],
+  "sso_errors": [
+    {
+      "id": 1,
+      "error": "This is an example of the error type"
+    }
   ]
 }
