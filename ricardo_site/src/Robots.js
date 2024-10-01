@@ -9,8 +9,11 @@ function Robots() {
         <Helmet>
           <title>Robots page is where I currently am!</title>
           <meta property="og:title" content="Robots Page Metadata" />
-          <meta property="og:url" content="www.google.com" />
+          <meta property="og:url" content="https://ricardo-sso.vercel.app/robots" />
           <meta property="og:description" content="Page focused on the robots page" />
+          <meta property="article:tag" content="Cool" />
+          <meta property="article:tag" content="Dumb" />
+          <meta property="article:tag" content="Amazing" />
         </Helmet>
         <main className="robots-content">
           <section className="robots-section">

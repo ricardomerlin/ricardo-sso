@@ -9,8 +9,11 @@ function Dogs({ page }) {
         <Helmet>
           <title>Wow I am on the dogs page</title>
           <meta property="og:title" content="Home Page Metadata" />
-          <meta property="og:url" content="www.google.com" />
+          <meta property="og:url" content="https://ricardo-sso.vercel.app/dogs" />
           <meta property="og:description" content="Page focused on the home page" />
+          <meta property="article:tag" content="Cool" />
+          <meta property="article:tag" content="Dumb" />
+          <meta property="article:tag" content="Scary" />
         </Helmet>
         <main className="dogs-content">
           <section className="dogs-section">
