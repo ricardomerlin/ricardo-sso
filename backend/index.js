@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.get('/sso_error_accounts', (req, res) => {
+app.get('/ssoerroraccounts', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
     if (err) return res.status(500).send('Server Error');
     const db = JSON.parse(data)
