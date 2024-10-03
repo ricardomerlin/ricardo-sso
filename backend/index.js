@@ -26,6 +26,14 @@ const corsOptions = {
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  fs.readFile(dbPath, 'utf8', (err, data) => {
+    if (err) return res.status(500).send('Server Error');
+    const db = JSON.parse(data)
+    res.json(db)
+  })
+})
+
 app.get('/users', (req, res) => {
   fs.readFile(dbPath, 'utf8', (err, data) => {
     if (err) return res.status(500).send('Server Error');
