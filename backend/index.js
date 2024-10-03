@@ -123,7 +123,7 @@ app.post('/login', (req, res) => {
   
     fs.readFile(dbPath, 'utf8', (err, data) => {
       if (err) return res.status(500).send('Internal Server Error');
-      const db = JSON.parse(data.users);
+      const db = JSON.parse(data);
       const user = db.users.find(u => u.username === username && u.password === password);
   
       if (!user) {
