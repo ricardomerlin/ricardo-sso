@@ -2,68 +2,71 @@
   "users": [
     {
       "id": "5b99d399-fcd4-4d26-860b-6a1b53466244",
-      "name": "po",
+      "name": "John Adams",
       "email": "p@gmail.com",
-      "username": "op",
-      "password": "p",
-      "display_name": "s",
+      "username": "JAdams",
+      "password": "j",
+      "display_name": "JAdams",
       "email_verified": false,
       "image_url": "https://joyrideharness.com/cdn/shop/articles/AdobeStock_274099078.jpg?v=1620400547",
       "private_profile": false
     },
     {
       "id": "171a68a3-0951-4480-85fc-b1ca59c3a238",
-      "name": "p",
+      "name": "Mark Henry",
       "email": "l@gmail.com",
-      "username": "l",
-      "password": "l",
-      "display_name": "l",
+      "username": "MHenry",
+      "password": "m",
+      "display_name": "MHenry",
       "email_verified": false,
       "image_url": "https://mahb.stanford.edu/wp-content/uploads/2021/08/cow-funny-ruminant-cute-e1629728912539.jpg",
       "private_profile": false
     },
     {
       "id": "760d82b3-134f-4b48-807b-7f8ba730dc0f",
-      "name": "h",
+      "name": "Elliot Stabler",
       "email": "h@gmail.com",
-      "username": "h",
-      "password": "h",
-      "display_name": "h",
+      "username": "EStabler",
+      "password": "e",
+      "display_name": "EStabler",
       "email_verified": false,
       "image_url": "h",
       "private_profile": false
     },
     {
       "id": "f7f7d8ec-01a6-4d79-a331-c85c1e159932",
-      "name": "d",
+      "name": "Donut Man",
       "email": "d@gmail.com",
-      "username": "d",
+      "username": "DMan",
       "password": "d",
-      "display_name": "d",
+      "display_name": "DMan",
       "email_verified": false,
-      "image_url": "d",
+      "image_url": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/donut-warrior-funny-donut-for-men-women-kids-baker-warrior-baking-crazy-squirrel.jpg",
       "private_profile": false
     },
     {
       "id": "1ae3b490-fd0a-4df9-8c60-c549ecf6ebd1",
-      "name": "Ricardo LONG ASS NAME",
+      "name": "Funny Guy",
       "email": "qdonkey@gmail.com",
-      "username": "Chicken Nuggets",
-      "password": "q",
-      "display_name": "q",
+      "username": "FGuy",
+      "password": "f",
+      "display_name": "FGuy",
       "email_verified": false,
       "image_url": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
-      "private_profile": false,
-      "displayName": "Ugly Stinky",
-      "imageURL": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
-      "privateProfile": false,
-      "is_blocked": true
+      "private_profile": false
     }
   ],
-  "sso_errors": [
+  "sso_error_accounts": [
     {
-      "id": 1,
-      "error": "This is an example of the error type"
+      "id": "1ae3b490-fd0a-4df9-8c60-c549ecf6ebd1",
+      "name": "Duplicate Email",
+      "email": "qdonkey@gmail.com",
+      "username": "DEmail",
+      "password": "d",
+      "display_name": "FGuy",
+      "email_verified": false,
+      "image_url": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
+      "private_profile": false
     }
   ]
 }
