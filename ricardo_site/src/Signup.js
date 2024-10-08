@@ -31,7 +31,7 @@ function Signup() {
 
     try {
         console.log('trying! damn')
-      const response = await fetch('https://ricardo-sso.onrender.com/users', {
+      const response = await fetch('http://localhost:3001/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

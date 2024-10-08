@@ -17,7 +17,7 @@ console.log(secretKey)
 console.log(ssoToken)
 
 const corsOptions = {
-    origin: 'https://ricardo-sso.onrender.com',
+    origin: 'http://localhost:3001',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204
@@ -124,8 +124,12 @@ app.post('/login', (req, res) => {
     fs.readFile(dbPath, 'utf8', (err, data) => {
       if (err) return res.status(500).send('Internal Server Error');
       const db = JSON.parse(data);
-      const user = db.users.find(u => u.username === username && u.password === password);
-  
+      console.log(username)
+      console.log(password)
+      const user = (username === 'DEmail')
+      ? db.sso_error_accounts.find(u => u.username === username && u.password === password)
+      : db.users.find(u => u.username === username && u.password === password);
+
       if (!user) {
         console.log('User not found');
         return res.status(401).json({ message: 'Invalid username or password' });

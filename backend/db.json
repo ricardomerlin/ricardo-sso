@@ -54,18 +54,16 @@
       "email_verified": false,
       "image_url": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
       "private_profile": false
-    }
-  ],
-  "sso_error_accounts": [
+    },
     {
-      "id": "1ae3b490-fd0a-4df9-8c60-c549ecf6ebd1",
+      "id": "duplicate-email-123",
       "name": "Duplicate Email",
       "email": "qdonkey@gmail.com",
       "username": "DEmail",
       "password": "d",
       "display_name": "FGuy",
       "email_verified": false,
-      "image_url": "https://wallpapers.com/images/featured/funny-profile-picture-r8l2gifvpdd0kt25.jpg",
+      "image_url": "https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg",
       "private_profile": false
     }
   ]

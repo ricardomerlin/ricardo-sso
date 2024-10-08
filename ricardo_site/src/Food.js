@@ -10,7 +10,7 @@ function Food() {
         <Helmet>
           <title>Wow this is dumb!</title>
           <meta property="og:title" content="Food Page Metadata" />
-          <meta property="og:url" content="https://ricardo-sso.vercel.app/food" />
+          <meta property="og:url" content="http://localhost:3000/food" />
           <meta property="og:description" content="Page focused on the food page" />
           <meta property="article:tag" content="Interesting" />
           <meta property="article:tag" content="What" />
