@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import "./styling/Robots.css";
 
 function Robots() {
@@ -31,6 +32,9 @@ function Robots() {
           <div data-spotim-module="pitc" data-vertical-view="true"></div>
         </main>
       </div>
+      <OpenWebProvider spotId='sp_5esW6NWZ'>
+        <Conversation postId='Robots' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/food`} />
+      </OpenWebProvider>
     </HelmetProvider>
   );
 }

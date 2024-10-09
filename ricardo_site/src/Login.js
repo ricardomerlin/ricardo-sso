@@ -20,7 +20,7 @@ function Login({ handleLogin, checkLoading, loading }) {
         console.log('starting')
         await new Promise(resolve => setTimeout(resolve, 1000));
         try {
-          const response = await fetch('http://localhost:3001/login', {
+          const response = await fetch('https://ricardo-sso.onrender.com/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

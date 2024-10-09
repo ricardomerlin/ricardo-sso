@@ -10,7 +10,7 @@ function Debugging({  }) {
   }, [])
 
   const getSSOErrors = () => {
-    fetch('http://localhost:3001/sso_errors')
+    fetch('https://ricardo-sso.onrender.com/sso_errors')
   }
 
 

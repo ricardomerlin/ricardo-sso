@@ -17,7 +17,7 @@ console.log(secretKey)
 console.log(ssoToken)
 
 const corsOptions = {
-    origin: 'http://localhost:3001',
+    origin: 'https://ricardo-sso.onrender.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204

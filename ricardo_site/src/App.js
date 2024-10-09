@@ -10,19 +10,15 @@ import Page from './Page';
 import Profile from './Profile'
 import Debugging from './Debugging';
 import './styling/App.css';
-import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
 import { startTTH } from '@open-web/react-sdk';
 import { logout } from '@open-web/react-sdk';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [pages, setPages] = useState(['Robots', 'Food', 'Dogs']);
-  const [selectedPage, setSelectedPage] = useState('');
   const [loading, setLoading] = useState(false)
+  const [profileOptions, setProfileOptions] = useState(false)
   const navigate = useNavigate();
-
-  console.log(selectedPage)
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -77,7 +73,7 @@ function App() {
   console.log(loading)
 
   const performBEDHandshakeCallback = async (codeA) => {
-    const res = await fetch(`http://localhost:3001/start-handshake`, {
+    const res = await fetch(`https://ricardo-sso.onrender.com/start-handshake`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,6 +88,9 @@ function App() {
     return codeB;
   };
 
+
+  const pages = ['Robots', 'Food', 'Dogs']
+
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
       <Link
@@ -99,13 +98,6 @@ function App() {
         to={loading ? "#" : page}
         className={loading ? 'disabled-link' : ''}
         page={page}
-        onClick={(e) => {
-          if (!loading) {
-            switchCurrentPage(page);
-          } else {
-            e.preventDefault();
-          }
-        }}
       >
         {page}
       </Link>
@@ -133,14 +125,6 @@ function App() {
     });
   };
 
-  const switchCurrentPage = (value) => {
-    setSelectedPage(value);
-  };
-
-  const goToNonArticle = () => {
-    setSelectedPage(null);
-  };
-
   return (
     <>
       <header className="home-header">
@@ -151,13 +135,6 @@ function App() {
         <Link
           to={loading ? "#" : "/"}
           className={loading ? 'disabled-link' : ''}
-          onClick={(e) => {
-            if (!loading) {
-              goToNonArticle();
-            } else {
-              e.preventDefault();
-            }
-          }}
         >
           Home
         </Link>
@@ -167,41 +144,40 @@ function App() {
         <Link
           to={'/debugging'}
           className='debugging'
-          onClick={() => goToNonArticle()}
         >Debugging</Link>
         
         {!loggedIn ? (
-          <Link
-            to={loading ? "#" : "/login"}
-            className={loading ? 'disabled-link' : ''}
-            onClick={(e) => {
-              if (!loading) {
-                goToNonArticle();
-              } else {
-                e.preventDefault();
-              }
-            }}
-          >
-            Login
-          </Link>
-        ) : (
-          <Link
-            to="#"
-            className={loading ? 'disabled-link' : ''}
-            onClick={(e) => {
-              if (!loading) {
-                handleLogout();
-              } else {
-                e.preventDefault();
-              }
-            }}
-          >
-            Logout
-          </Link>
-        )}
+        <Link
+          to={loading ? "#" : "/login"}
+          className={loading ? 'disabled-link' : ''}
+        >
+          Login
+        </Link>
+      ) : (
+        <>
+          {profileOptions ? (
+            <>
+              <Link to="/profile" className="profile-link">
+                Profile
+              </Link>
+              <Link 
+              to={'#'}
+              onClick={handleLogout}>
+                Logout
+              </Link>
+            </>
+          ) : (
+            <Link
+              to="#"
+              className="profile-link"
+              onClick={() => setProfileOptions(true)}
+            >
+              Profile
+            </Link>
+          )}
+        </>
+      )}
       </nav>
-
-
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -211,13 +187,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/debugging" element={<Debugging />} />
         </Routes>
-        {selectedPage ? 
-        <OpenWebProvider spotId='sp_5esW6NWZ'>
-          <Conversation postId={selectedPage} className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/${selectedPage}`} />
-        </OpenWebProvider>
-        :
-        null
-        }
       </main>
     </>
   );
