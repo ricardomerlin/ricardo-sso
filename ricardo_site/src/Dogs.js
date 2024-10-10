@@ -35,6 +35,7 @@ function Dogs({ page }) {
           <div data-spotim-module="pitc" data-vertical-view="true"></div>
         </main>
       </div>
+      <div data-spotim-module="liveblog" data-live-event-code="2nG9UloIPwVofATDY6ibQntcebG"></div>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <Conversation postId='Dogs' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/food`} />
       </OpenWebProvider>
