@@ -14,7 +14,7 @@ function Robots() {
           <meta property="og:title" content="Robots Page Metadata" />
           <meta property="og:url" content="https://ricardo-sso.vercel.app/robots" />
           <meta property="og:description" content="Page focused on the robots page" />
-          <meta property="og:image" content="http://www.spotim.name/RicardoTest/testPage/Robot.jpg" />
+          <meta property="og:image" content="https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/4fc938a4-9a44-40e7-8025-3973b0c07494/width=450//CUTE_ROBOTS_FLUX_e000005_01_20240917012227.jpeg" />
           <meta property="article:tag" content="Cool" />
           <meta property="article:tag" content="Dumb" />
           <meta property="article:tag" content="Amazing" />

@@ -15,6 +15,7 @@ function Food() {
           <meta property="og:title" content="Food Page Metadata" />
           <meta property="og:url" content="https://ricardo-sso.vercel.app/food" />
           <meta property="og:description" content="Page focused on the food page" />
+          <meta property="og:image" content="https://www.wholesomeyum.com/wp-content/uploads/2023/06/wholesomeyum-Best-Burger-Recipe-12.jpg" />
           <meta property="article:tag" content="Interesting" />
           <meta property="article:tag" content="What" />
           <meta property="article:tag" content="Cool" />
