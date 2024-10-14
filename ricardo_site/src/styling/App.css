@@ -39,12 +39,10 @@ body {
   background-color: #004080;
 }
 
-/* Main Content Styles */
 .main-content {
   padding: 20px;
   background-color: white;
   margin: 0 auto;
-  /* max-width: 800px; */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   justify-content: center;
@@ -71,9 +69,7 @@ footer p {
   color: #555;
 }
 
-.owConv {
-  width: 80%
-}
+
 
 
 

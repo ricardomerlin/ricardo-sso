@@ -10,6 +10,7 @@ function Profile() {
         email: false,
         displayName: false,
     });
+    const [isVerifying, setIsVerifying] = useState(false);
 
     const handleEditClick = (field) => {
         setIsEditing({ ...isEditing, [field]: true });
@@ -24,7 +25,7 @@ function Profile() {
 
     const handleSaveChanges = async () => {
         try {
-            const response = await fetch(`https://ricardo-sso.onrender.com/users/${userDetails.id}`, {
+            const response = await fetch(`https://ricardo-sso.vercel.app/users/${userDetails.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +54,31 @@ function Profile() {
             alert('Failed to save changes');
         }
     };
-    
+
+    const handleVerifyEmail = async () => {
+        try {
+            setIsVerifying(true);
+
+            const response = await fetch(`https://ricardo-sso.vercel.app/send-verification-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: userDetails.email }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send verification email');
+            }
+
+            alert('Verification email sent. Please check your inbox.');
+            setIsVerifying(false);
+        } catch (error) {
+            console.error('Error sending verification email:', error);
+            alert('Failed to send verification email');
+            setIsVerifying(false);
+        }
+    };
 
     if (!storedUserDetails) {
         return <p>No user information found. Please log in to view profile details.</p>;
@@ -100,6 +125,15 @@ function Profile() {
                             />
                         ) : (
                             <span onClick={() => handleEditClick('email')}>{userDetails.email}</span>
+                        )}
+                        {!userDetails.isEmailVerified && (
+                            <button 
+                                className="verify-email-btn" 
+                                onClick={handleVerifyEmail} 
+                                disabled={isVerifying}
+                            >
+                                {isVerifying ? 'Verifying...' : 'Verify'}
+                            </button>
                         )}
                     </li>
                     <li>

@@ -1,37 +1,23 @@
-.home-container {
+  .home-main {
     display: flex;
-    flex-direction: column;
-  }
-  
-  .home-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .home-section {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: justify;
-  }
-  
-  .home-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .home-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #555;
-  }
-  
-  .home-footer {
+    padding: 1%;
     text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
   }
-  
+
+  .left-empty {
+    width: 10%;
+  }
+
+  .middle-home-section {
+    /* border: 2px solid black; */
+    width: 60%;
+    margin-right: 50px;
+  }
+
+  .right-ads {
+    width: 20%
+  }
+
+  .home-image {
+    width: 300px;
+  }

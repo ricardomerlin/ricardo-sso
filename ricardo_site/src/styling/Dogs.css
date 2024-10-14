@@ -1,31 +1,56 @@
-  .dogs-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .dogs-section {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: justify;
-  }
-  
-  .dogs-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .dogs-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #555;
-  }
-  
-  .dogs-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: white;
-  }
-  
+/* Content and section layout */
+.dogs-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.dogs-section {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.dogs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dogs-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Image styling */
+.dog-image-left {
+  max-width: 30%;
+  height: auto;
+  margin: 10px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.dog-image-right {
+  max-width: 30%;
+  height: auto;
+  margin: 10px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+/* Footer styling */
+.dogs-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  clear: both; /* Ensures the footer appears below the floated images */
+}

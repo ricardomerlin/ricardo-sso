@@ -17,7 +17,7 @@ console.log(secretKey)
 console.log(ssoToken)
 
 const corsOptions = {
-    origin: 'https://ricardo-sso.onrender.com',
+    origin: 'https://ricardo-sso.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204
@@ -126,9 +126,7 @@ app.post('/login', (req, res) => {
       const db = JSON.parse(data);
       console.log(username)
       console.log(password)
-      const user = (username === 'DEmail')
-      ? db.sso_error_accounts.find(u => u.username === username && u.password === password)
-      : db.users.find(u => u.username === username && u.password === password);
+      const user = db.users.find(u => u.username === username && u.password === password);
 
       if (!user) {
         console.log('User not found');

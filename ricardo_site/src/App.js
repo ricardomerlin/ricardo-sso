@@ -7,7 +7,7 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import Page from './Page';
-import Profile from './Profile'
+import Profile from './Profile';
 import Debugging from './Debugging';
 import './styling/App.css';
 import { startTTH } from '@open-web/react-sdk';
@@ -16,16 +16,15 @@ import { logout } from '@open-web/react-sdk';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false)
-  const [profileOptions, setProfileOptions] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [profileOptions, setProfileOptions] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    if (token && user) {
+    const storedUserToken = localStorage.getItem('userToken');
+    if (storedUserToken) {
       setLoggedIn(true);
-      setUser(user);
+      setUser(JSON.parse(storedUserToken));
     } else {
       setLoggedIn(false);
       setUser(null);
@@ -42,54 +41,50 @@ function App() {
   }, [navigate]);
 
   const handleLogin = (value, userInfo) => {
+    const userToken = JSON.stringify(userInfo);
     setLoggedIn(value);
     setUser(userInfo);
-    login();
+    localStorage.setItem('userToken', userToken);
+    login(userToken);
   };
 
-  const userToken = localStorage.getItem('token');
-
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('userToken');
     setLoggedIn(false);
     setUser(null);
     logoutFromOw();
   };
 
-  const login = () => {
+  const login = (userToken) => {
     startTTH({ userToken, performBEDHandshakeCallback });
   };
-  
+
   const logoutFromOw = () => {
     logout();
   };
 
   const checkLoading = (value) => {
-    console.log(value)
-    setLoading(value)
-  }
-
-  console.log(loading)
+    setLoading(value);
+  };
 
   const performBEDHandshakeCallback = async (codeA) => {
-    const res = await fetch(`https://ricardo-sso.onrender.com/start-handshake`, {
+    const res = await fetch(`https://ricardo-sso.vercel.app/start-handshake`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         code_a: codeA,
-        userToken: JSON.parse(localStorage.getItem('user')),
+        userToken: JSON.parse(localStorage.getItem('userToken')),
       }),
     });
-  
     const codeB = await res.text();
     return codeB;
   };
 
+  console.log('USERTOKEN',localStorage.getItem('userToken'))
 
-  const pages = ['Robots', 'Food', 'Dogs']
+  const pages = ['Robots', 'Food', 'Dogs'];
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
@@ -103,7 +98,6 @@ function App() {
       </Link>
     ));
   };
-  
 
   const mappedPageRoutes = () => {
     return pages.map((page, index) => {
@@ -132,51 +126,36 @@ function App() {
       </header>
 
       <nav className="navbar">
-        <Link
-          to={loading ? "#" : "/"}
-          className={loading ? 'disabled-link' : ''}
-        >
+        <Link to={loading ? "#" : "/"} className={loading ? 'disabled-link' : ''}>
           Home
         </Link>
         
         {mappedPageLinks()}
 
-        <Link
-          to={'/debugging'}
-          className='debugging'
-        >Debugging</Link>
+        <Link to={'/debugging'} className="debugging">Debugging</Link>
         
         {!loggedIn ? (
-        <Link
-          to={loading ? "#" : "/login"}
-          className={loading ? 'disabled-link' : ''}
-        >
-          Login
-        </Link>
-      ) : (
-        <>
-          {profileOptions ? (
-            <>
-              <Link to="/profile" className="profile-link">
+          <Link to={loading ? "#" : "/login"} className={loading ? 'disabled-link' : ''}>
+            Login
+          </Link>
+        ) : (
+          <>
+            {profileOptions ? (
+              <>
+                <Link to="/profile" className="profile-link">
+                  Profile
+                </Link>
+                <Link to="#" onClick={handleLogout}>
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <Link to="#" className="profile-link" onClick={() => setProfileOptions(true)}>
                 Profile
               </Link>
-              <Link 
-              to={'#'}
-              onClick={handleLogout}>
-                Logout
-              </Link>
-            </>
-          ) : (
-            <Link
-              to="#"
-              className="profile-link"
-              onClick={() => setProfileOptions(true)}
-            >
-              Profile
-            </Link>
-          )}
-        </>
-      )}
+            )}
+          </>
+        )}
       </nav>
       <main className="main-content">
         <Routes>
