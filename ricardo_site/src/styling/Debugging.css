@@ -1,7 +1,47 @@
-.noPK-image {
-    width: 100%;
+.error-listing {
+    background-color: #e0f7fa; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00796b; /* Darker blue-green border for emphasis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
-.error-listing {
-    
+.error-listing h1 {
+    color: #00796b; /* Darker blue-green for the header */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.error-listing p {
+    color: #004d40;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.noPK-image {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.debugging-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.debugging-container h1 {
+    font-size: 2rem;
+    color: #00796b;
+}
+
+.idk {
+    text-align: center;
 }

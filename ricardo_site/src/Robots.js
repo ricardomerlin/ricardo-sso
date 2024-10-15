@@ -10,7 +10,7 @@ function Robots() {
     <HelmetProvider>
       <div className="robots-container">
         <Helmet>
-          <title>Robots page is where I currently am!</title>
+          <title>Robots</title>
           <meta property="og:title" content="Robots Page Metadata" />
           <meta property="og:url" content="https://ricardo-sso.vercel.app/robots" />
           <meta property="og:description" content="Page focused on the robots page" />

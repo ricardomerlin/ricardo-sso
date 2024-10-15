@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styling/Profile.css';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 function Profile() {
     const storedUserDetails = JSON.parse(localStorage.getItem('user'));
@@ -85,85 +86,90 @@ function Profile() {
     }
 
     return (
-        <div className="profile-container">
-            <h1 className='profile-name-header'>
-                {isEditing.name ? (
-                    <input 
-                        type="text" 
-                        name="name" 
-                        value={userDetails.name} 
-                        onChange={handleChange}
-                    />
-                ) : (
-                    <span onClick={() => handleEditClick('name')}>{userDetails.name}</span>
-                )}
-            </h1>
-            <div className="profile-details">
-                <img src={userDetails.imageURL} alt="Profile" className="profile-picture" />
-                <ul>
-                    <li>
-                        <strong>Username:</strong> 
-                        {isEditing.username ? (
-                            <input 
-                                type="text" 
-                                name="username" 
-                                value={userDetails.username} 
-                                onChange={handleChange}
-                            />
-                        ) : (
-                            <span onClick={() => handleEditClick('username')}>{userDetails.username}</span>
-                        )}
-                    </li>
-                    <li>
-                        <strong>Email:</strong> 
-                        {isEditing.email ? (
-                            <input 
-                                type="email" 
-                                name="email" 
-                                value={userDetails.email} 
-                                onChange={handleChange}
-                            />
-                        ) : (
-                            <span onClick={() => handleEditClick('email')}>{userDetails.email}</span>
-                        )}
-                        {!userDetails.isEmailVerified && (
-                            <button 
-                                className="verify-email-btn" 
-                                onClick={handleVerifyEmail} 
-                                disabled={isVerifying}
-                            >
-                                {isVerifying ? 'Verifying...' : 'Verify'}
-                            </button>
-                        )}
-                    </li>
-                    <li>
-                        <strong>Display Name:</strong> 
-                        {isEditing.displayName ? (
-                            <input 
-                                type="text" 
-                                name="displayName" 
-                                value={userDetails.displayName} 
-                                onChange={handleChange}
-                            />
-                        ) : (
-                            <span onClick={() => handleEditClick('displayName')}>{userDetails.displayName}</span>
-                        )}
-                    </li>
-                </ul>
+        <HelmetProvider>
+            <Helmet>
+                <title>{userDetails.name}</title>
+            </Helmet>
+            <div className="profile-container">
+                <h1 className='profile-name-header'>
+                    {isEditing.name ? (
+                        <input 
+                            type="text" 
+                            name="name" 
+                            value={userDetails.name} 
+                            onChange={handleChange}
+                        />
+                    ) : (
+                        <span onClick={() => handleEditClick('name')}>{userDetails.name}</span>
+                    )}
+                </h1>
+                <div className="profile-details">
+                    <img src={userDetails.imageURL} alt="Profile" className="profile-picture" />
+                    <ul>
+                        <li>
+                            <strong>Username:</strong> 
+                            {isEditing.username ? (
+                                <input 
+                                    type="text" 
+                                    name="username" 
+                                    value={userDetails.username} 
+                                    onChange={handleChange}
+                                />
+                            ) : (
+                                <span onClick={() => handleEditClick('username')}>{userDetails.username}</span>
+                            )}
+                        </li>
+                        <li>
+                            <strong>Email:</strong> 
+                            {isEditing.email ? (
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    value={userDetails.email} 
+                                    onChange={handleChange}
+                                />
+                            ) : (
+                                <span onClick={() => handleEditClick('email')}>{userDetails.email}</span>
+                            )}
+                            {!userDetails.isEmailVerified && (
+                                <button 
+                                    className="verify-email-btn" 
+                                    onClick={handleVerifyEmail} 
+                                    disabled={isVerifying}
+                                >
+                                    {isVerifying ? 'Verifying...' : 'Verify'}
+                                </button>
+                            )}
+                        </li>
+                        <li>
+                            <strong>Display Name:</strong> 
+                            {isEditing.displayName ? (
+                                <input 
+                                    type="text" 
+                                    name="displayName" 
+                                    value={userDetails.displayName} 
+                                    onChange={handleChange}
+                                />
+                            ) : (
+                                <span onClick={() => handleEditClick('displayName')}>{userDetails.displayName}</span>
+                            )}
+                        </li>
+                    </ul>
 
-                {Object.values(isEditing).some(editing => editing) && (
-                    <>
-                        <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
-                        <button onClick={() => setIsEditing({
-                            name: false,
-                            username: false,
-                            email: false,
-                            displayName: false,
-                        })} className="cancel-changes-btn">Cancel</button>
-                    </>
-                )}
+                    {Object.values(isEditing).some(editing => editing) && (
+                        <>
+                            <button onClick={handleSaveChanges} className="save-changes-btn">Save Changes</button>
+                            <button onClick={() => setIsEditing({
+                                name: false,
+                                username: false,
+                                email: false,
+                                displayName: false,
+                            })} className="cancel-changes-btn">Cancel</button>
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </HelmetProvider>
     );
 }
 

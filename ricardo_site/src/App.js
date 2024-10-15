@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import Robots from './Robots';
 import Dogs from './Dogs';
@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [profileOptions, setProfileOptions] = useState(false);
+  const profileRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,13 +31,22 @@ function App() {
       setUser(null);
     }
 
-    document.addEventListener('spot-im-login-start', function(event) {
+    document.addEventListener('spot-im-login-start', function (event) {
       console.log('spot-im-login-start event detected!');
       navigate('/login');
     });
 
+    function handleClickOutside(event) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOptions(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('spot-im-login-start', () => {});
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [navigate]);
 
@@ -82,7 +92,7 @@ function App() {
     return codeB;
   };
 
-  console.log('USERTOKEN',localStorage.getItem('userToken'))
+  console.log('USERTOKEN', localStorage.getItem('userToken'));
 
   const pages = ['Robots', 'Food', 'Dogs'];
 
@@ -124,16 +134,15 @@ function App() {
       <header className="home-header">
         <h1>Welcome to Ricardo's SSO Site</h1>
       </header>
-
       <nav className="navbar">
         <Link to={loading ? "#" : "/"} className={loading ? 'disabled-link' : ''}>
           Home
         </Link>
-        
+
         {mappedPageLinks()}
 
         <Link to={'/debugging'} className="debugging">Debugging</Link>
-        
+
         {!loggedIn ? (
           <Link to={loading ? "#" : "/login"} className={loading ? 'disabled-link' : ''}>
             Login
@@ -141,14 +150,14 @@ function App() {
         ) : (
           <>
             {profileOptions ? (
-              <>
+              <div ref={profileRef} className="profile-options">
                 <Link to="/profile" className="profile-link">
                   Profile
                 </Link>
-                <Link to="#" onClick={handleLogout}>
+                <Link to="#" className="profile-link" onClick={handleLogout}>
                   Logout
                 </Link>
-              </>
+              </div>
             ) : (
               <Link to="#" className="profile-link" onClick={() => setProfileOptions(true)}>
                 Profile
@@ -161,7 +170,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {mappedPageRoutes()}
-          <Route path="/login" element={<Login handleLogin={handleLogin} checkLoading={checkLoading} loading={loading}/>} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} checkLoading={checkLoading} loading={loading} />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/debugging" element={<Debugging />} />

@@ -7,7 +7,7 @@ function Home() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>This is the Home Page</title>
+        <title>Home</title>
         <meta property="og:title" content="Home Page Metadata" />
         <meta property="og:url" content="" />
         <meta property="og:description" content="Page focused on the home page" />
@@ -44,7 +44,7 @@ function Home() {
             </p>
           </section>
           <section className="right-ads">
-            <p>This bar is where the ads will live. For now, some photos of my dog!</p>
+            <p>This bar is where the ads will live. For now, a photo of my dog!</p>
             <img src={Scootie} className="home-image"/>
 
           </section>

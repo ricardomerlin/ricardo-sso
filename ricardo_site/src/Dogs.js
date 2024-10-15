@@ -10,7 +10,7 @@ function Dogs({ page }) {
     <HelmetProvider>
       <div className="dogs-container">
         <Helmet>
-          <title>Wow I am on the dogs page</title>
+          <title>Dogs</title>
           <meta property="og:title" content="Home Page Metadata" />
           <meta property="og:url" content="https://ricardo-sso.vercel.app/dogs" />
           <meta property="og:description" content="Page focused on the dogs page" />

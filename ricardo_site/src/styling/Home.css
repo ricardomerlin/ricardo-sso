@@ -19,5 +19,20 @@
   }
 
   .home-image {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
   }
+  
+  @media (max-width: 768px) {
+    .home-image {
+      max-width: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-image {
+      max-width: 150px;
+    }
+  }
+  
