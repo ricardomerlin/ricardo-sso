@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
+import { Conversation, OpenWebProvider, PopularInTheCommunity } from '@open-web/react-sdk';
 import './styling/Food.css';
 import dishImage1 from './images/burger.webp';
 import dishImage2 from './images/pasta.jpg';
@@ -51,7 +51,8 @@ function Food() {
             </p>
           </section>
           <OpenWebProvider spotId='sp_5esW6NWZ'>
-            <Conversation postId='Food' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/food`} />
+            <PopularInTheCommunity postId='Food' postUrl='https://ricardo-sso.vercel.app/food' />
+            <Conversation postId='Food' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/food`} />
           </OpenWebProvider>
           <div data-spotim-module="pitc"></div>
         </main>

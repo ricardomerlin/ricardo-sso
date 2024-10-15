@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Conversation, OpenWebProvider } from '@open-web/react-sdk';
+import { Conversation, OpenWebProvider, PopularInTheCommunity } from '@open-web/react-sdk';
 import "./styling/Robots.css";
 import teslaBot from './images/teslarobot.webp';
 import robotFace from './images/robot1.jpg';
@@ -43,9 +43,9 @@ function Robots() {
             </div>
           </section>
           <OpenWebProvider spotId='sp_5esW6NWZ'>
-            <Conversation postId='Robots' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`http://localhost:3000/robots`} />
+            <PopularInTheCommunity postId='Robots' postUrl='https://ricardo-sso.vercel.app/robots' />
+            <Conversation postId='Robots' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/robots`} />
           </OpenWebProvider>
-          <div data-spotim-module="pitc"></div>
         </main>
       </div>
     </HelmetProvider>
