@@ -4,7 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
-// require('dotenv').config({ path: './backend/.env' });
 require('dotenv').config();
 
 const app = express();
