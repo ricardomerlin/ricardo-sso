@@ -31,7 +31,7 @@ function Signup() {
 
     try {
         console.log('trying! damn')
-      const response = await fetch('https://ricardo-sso.vercel.app/users', {
+      const response = await fetch('https://ricardo-sso.onrender.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
