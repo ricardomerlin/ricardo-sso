@@ -78,7 +78,7 @@ function App() {
   };
 
   const performBEDHandshakeCallback = async (codeA) => {
-    const res = await fetch(`https://ricardo-sso.vercel.app/start-handshake`, {
+    const res = await fetch(`https://ricardo-sso.onrender.com/start-handshake`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
