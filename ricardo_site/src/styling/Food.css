@@ -1,16 +1,12 @@
-/* Container and content layout */
 .food-container {
   display: flex;
-  flex-direction: column;
-}
-
-.food-content {
-  flex: 1;
-  padding: 20px;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
 }
 
 .food-section {
-  max-width: 800px;
+  max-width: 50%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -49,4 +45,12 @@
   background-color: #333;
   color: white;
   clear: both;
+}
+
+.right-section {
+  width: 50%;
+}
+
+.spotlight {
+  max-width: 400px;
 }

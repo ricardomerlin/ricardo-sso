@@ -1,10 +1,12 @@
-.robots-content {
-  flex: 1;
-  padding: 20px;
+.robots-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
 }
 
 .robots-section {
-  max-width: 800px;
+  max-width: 50%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -50,5 +52,13 @@
   padding: 10px;
   background-color: #333;
   color: white;
-  clear: both; /* Ensure footer stays below floated content */
+  clear: both;
+}
+
+.right-section {
+  width: 50%;
+}
+
+.spotlight {
+  max-width: 400px;
 }

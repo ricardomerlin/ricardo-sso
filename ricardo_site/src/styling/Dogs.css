@@ -1,11 +1,12 @@
-/* Content and section layout */
-.dogs-content {
-  flex: 1;
-  padding: 20px;
+.dogs-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
 }
 
 .dogs-section {
-  max-width: 800px;
+  max-width: 50%;
   margin: 0 auto;
   text-align: justify;
 }
@@ -23,7 +24,6 @@
   color: #555;
 }
 
-/* Image styling */
 .dog-image-left {
   max-width: 30%;
   height: auto;
@@ -46,11 +46,18 @@
   border: 1px solid #333;
 }
 
-/* Footer styling */
 .dogs-footer {
   text-align: center;
   padding: 10px;
   background-color: #333;
   color: white;
-  clear: both; /* Ensures the footer appears below the floated images */
+  clear: both;
+}
+
+.right-section {
+  width: 50%;
+}
+
+.spotlight {
+  max-width: 400px;
 }
