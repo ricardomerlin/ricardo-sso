@@ -13,7 +13,7 @@ function Cats({ page }) {
         <meta property="og:title" content="Cats" />
         <meta property="og:url" content="https://ricardo-sso.vercel.app/cats" />
         <meta property="og:description" content="Page focused on cats" />
-        <meta property="og:image" content="https://example.com/cat_image.jpg" />
+        <meta property="og:image" content="https://www.dailypaws.com/thmb/Yix7KXWpI3xRjBT6Sva00pYYFVk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/tiny-white-kitten-873941684-2000-0bac130389984aba9751de5e5e50d25f.jpg" />
         <meta property="article:tag" content="Feline" />
         <meta property="article:tag" content="Companion" />
         <meta property="article:tag" content="Animals" />
