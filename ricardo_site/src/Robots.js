@@ -19,6 +19,7 @@ function Robots() {
           <meta property="article:tag" content="Future" />
           <meta property="article:tag" content="AI" />
           <meta property="article:tag" content="Automation" />
+          <meta property="article:author" content="Ricardo Merlin" />
         </Helmet>
         <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>

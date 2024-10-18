@@ -20,6 +20,7 @@ function Food() {
           <meta property="article:tag" content="Culture" />
           <meta property="article:tag" content="Savor" />
           <meta property="article:tag" content="Vegan" />
+          <meta property="article:author" content="Ricardo Merlin" />
         </Helmet>
         <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>

@@ -18,6 +18,7 @@ function Cats({ page }) {
         <meta property="article:tag" content="Companion" />
         <meta property="article:tag" content="Animals" />
         <meta property="article:tag" content="Cats" />
+        <meta property="article:author" content="Ricardo Merlin" />
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
@@ -56,7 +57,7 @@ function Cats({ page }) {
               </p>
             </section>
             <section className='right-section'>
-              <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
+              {/* <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div> */}
               <TopicTracker postId='Cats' postUrl='https://ricardo-sso.vercel.app/cats' />;
               <Spotlight className='spotlight'/>
               <PopularInTheCommunity postId='Cats' postUrl='https://ricardo-sso.vercel.app/cats' />

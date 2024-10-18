@@ -19,6 +19,7 @@ function Dogs({ page }) {
         <meta property="article:tag" content="Animals" />
         <meta property="article:tag" content="Veterinary" />
         <meta property="article:tag" content="Dogs" />
+        <meta property="article:author" content="Ricardo Merlin" />
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
