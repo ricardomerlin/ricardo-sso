@@ -62,6 +62,7 @@ function Dogs({ page }) {
             </section>
             <section className='right-section'>
               <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
+              <div data-spotim-module="pitc"></div>
               <TopicTracker postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />;
               <Spotlight className='spotlight'/>
               <PopularInTheCommunity postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />
