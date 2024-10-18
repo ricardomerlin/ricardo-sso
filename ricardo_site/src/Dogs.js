@@ -10,7 +10,7 @@ function Dogs({ page }) {
     <HelmetProvider>
       <Helmet>
         <title>Dogs</title>
-        <meta property="og:title" content="Home Page Metadata" />
+        <meta property="og:title" content="Dogs" />
         <meta property="og:url" content="https://ricardo-sso.vercel.app/dogs" />
         <meta property="og:description" content="Page focused on the dogs page" />
         <meta property="og:image" content="https://hips.hearstapps.com/hmg-prod/images/walking-shih-tzu-royalty-free-image-1682309398.jpg?crop=0.66635xw:1xh;center,top&resize=980:*" />

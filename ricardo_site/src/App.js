@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import Robots from './Robots';
 import Dogs from './Dogs';
 import Food from './Food';
+import Cats from './Cats';
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
@@ -94,7 +95,7 @@ function App() {
 
   console.log('USERTOKEN', localStorage.getItem('userToken'));
 
-  const pages = ['Robots', 'Food', 'Dogs'];
+  const pages = ['Robots', 'Food', 'Dogs', 'Cats'];
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
@@ -121,6 +122,9 @@ function App() {
           break;
         case 'Food':
           Component = Food;
+          break;
+        case 'Cats':
+          Component = Cats;
           break;
         default:
           Component = Page;
