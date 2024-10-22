@@ -1,9 +1,12 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Conversation, OpenWebProvider, PopularInTheCommunity, Spotlight, Reactions, TopicTracker } from '@open-web/react-sdk';
+import { useEffect } from 'react';
 import './styling/Dogs.css';
 
 function Toys({ page }) {
+
+  const user = localStorage.getItem('user')
 
   useEffect(() => {
     const postUserData = async () => {
@@ -34,7 +37,7 @@ function Toys({ page }) {
     };
 
     postUserData();
-  }, [user]);
+  }, []);
 
   return (
     <HelmetProvider>
