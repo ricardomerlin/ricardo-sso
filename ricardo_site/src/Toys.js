@@ -30,6 +30,7 @@ function Toys({ page }) {
           "@type":"DiscussionForumPosting",
           "@id":"https://ricardo-sso.vercel.app/Toys",
           "headline":"What kind of toys do you like?",
+          "name": "What kind of toys do you like from the name?",
           "author": {
             "@type": "Person",
             "name": "haecceity123"
