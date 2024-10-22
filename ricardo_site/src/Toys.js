@@ -17,7 +17,7 @@ function Toys({ page }) {
         };
 
         try {
-          const response = await fetch('http://localhost:3001/toys', {
+          const response = await fetch('https://ricardo-sso.vercel.app/toys', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
