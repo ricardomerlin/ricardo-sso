@@ -14,7 +14,7 @@ function Toys({ page }) {
       };
 
       try {
-        const response = await fetch('https://ricardo-sso.vercel.app/toys', {
+        const response = await fetch('https://ricardo-sso.onrender.com/toys', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
