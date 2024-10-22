@@ -84,6 +84,7 @@ app.post('/users', (req, res) => {
 
 app.post('/toys', async (req, res) => {
   try {
+      const apiUrl = 'https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys';
       const response = await fetch(apiUrl, requestOptions);
       const contentType = response.headers.get('content-type');
 
