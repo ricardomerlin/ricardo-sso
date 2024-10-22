@@ -45,7 +45,7 @@ function Toys({ page }) {
             data-spotim-module="spotim-launcher"
             data-seo-enabled="true">
         </script>
-        {/* <script type="application/ld+json">
+        <script type="application/ld+json">
         {JSON.stringify({
           "@context":"https://schema.org",
           "@type":"DiscussionForumPosting",
@@ -62,7 +62,7 @@ function Toys({ page }) {
             "userInteractionCount": 25
           }
         })}
-        </script> */}
+        </script>
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>

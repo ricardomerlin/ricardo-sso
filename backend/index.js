@@ -83,30 +83,40 @@ app.post('/users', (req, res) => {
 });
 
 app.post('/toys', async (req, res) => {
-  const apiUrl = 'https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys';
-  
-  const requestOptions = {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          'Cookie': 'access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IiIsInZlcmlmaWVkIjpmYWxzZSwidXNlcl9pZCI6InVfaXZ1MWFWSngzNXpRIiwiZGlzcGxheV9uYW1lIjoiUmViZWNjYVRvbmctd2FiY19yYWRpbyIsInVzZXJfbmFtZSI6IlJlYmVjY2FUb25nLXdhYmNfcmFkaW8iLCJyZWdpc3RlcmVkIjp0cnVlLCJpbWFnZV9pZCI6IiNPbGl2ZS1UdXJ0bGUiLCJyb2xlcyI6W3siY29udGV4dCI6InN5c3RlbSIsIm5hbWUiOiJyZWdpc3RlcmVkIn0seyJjb250ZXh0Ijoic3lzdGVtIiwibmFtZSI6InN1cGVyLWFkbWluIn1dLCJzc29fZGF0YSI6bnVsbCwicHJvdmlkZXJzIjpudWxsLCJyZXB1dGF0aW9uIjp7InRvdGFsIjoxfSwibG9jYXRpb24iOiIiLCJpc19tb2RlcmF0aW9uX3ZpZXdlciI6ZmFsc2UsInNwb3RfaWQiOiJzcF9jTjU1amhTRCIsImxhc3RfY2hlY2siOjE3MjMxMzI3NDEsInZlcnNpb24iOjIsIngtc3BvdGltLXRva2VuIjoiMDEyNDA4MDh4ajZvV2IuYWRmMjEwYzY2ODI3YjhiNjMzNmU5YzcxYzM0MTgzYzMxZmU0ZmMzYjk4YjJhNWQ5NjUyODZjN2I2ZTBkMjM3OSIsInBlcm1pc3Npb25zIjpudWxsLCJzcG90aW0tZGV2aWNlLXYyIjoiZF9xek1VaDBxQWd3MGpLakRNWGl5cyIsIm5ldHdvcmsiOnsibmV0d29ya19pZCI6Im5ldF93YWJjX3JhZGlvIiwibmV0d29ya19uYW1lIjoid2FiY19yYWRpbyIsIm5ldHdvcmtfaW1hZ2VfaWQiOiI5YmYyYzJiYWZkZWY4YTA0YjQ1ZDg0Nzg4ZWZjNWE4NSIsIm5ldHdvcmtfY29sb3IiOiIifSwic3BvdF9uYW1lIjoiIiwiZG9tYWluIjoiIiwicm9sZXNfbnVtYmVyIjowLCJ0ZW1wX3VzZXIiOmZhbHNlLCJleHAiOjE3NTE1NTQ3NDEsInN1YiI6InVfaXZ1MWFWSngzNXpRIn0.fS-8UUqrucvl1IGW12-SZ8PUeEOYTWWGbrnrAzFebK4; device_uuid=65cf3b5f-01e4-4bdf-81a3-bce0da4acd06'
-      }
-  };
-
   try {
       const response = await fetch(apiUrl, requestOptions);
-      const data = await response.json();
+      const contentType = response.headers.get('content-type');
 
       if (!response.ok) {
-          return res.status(response.status).json(data);
+          const errorData = await response.text();
+          console.error('Error response:', errorData);
+          return res.status(response.status).json({ error: 'Error occurred while posting', details: errorData });
       }
 
-      res.status(201).json(data);
+      // If the content type is not JSON, handle it
+      if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          return res.status(201).json(data);
+      } else {
+          // Handle the case where the response is HTML with JSON inside a <script> tag
+          const text = await response.text();
+          const jsonMatch = text.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+          
+          if (jsonMatch && jsonMatch[1]) {
+              const jsonData = JSON.parse(jsonMatch[1]); // Parse the extracted JSON
+              return res.status(200).json(jsonData);
+          } else {
+              console.error('Unexpected response format:', text);
+              return res.status(500).json({ error: 'Unexpected response format', details: text });
+          }
+      }
+
   } catch (error) {
       console.error('Error posting to discussion forum:', error);
       res.status(500).send('Error occurred while posting');
   }
 });
+
 
 
 app.post('/start-handshake', async (req, res) => {
