@@ -129,6 +129,7 @@ function App() {
           break;
         case 'Toys':
           Component = Toys;
+          break;
         default:
           Component = Page;
       }
