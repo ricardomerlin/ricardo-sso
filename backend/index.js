@@ -93,6 +93,8 @@ app.post('/toys', (req, res) => {
         }
     };
 
+    console.log(postData)
+
     try {
         const response = fetch('https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys', {
             method: 'POST',
