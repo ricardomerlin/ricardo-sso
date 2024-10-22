@@ -11,10 +11,7 @@ function Toys({ page }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          headline: "Best Toys for Kids - A Fun Discussion"
-        })
+        }
       });
 
       if (!response.ok) {
