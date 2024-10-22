@@ -29,7 +29,7 @@ function Toys({ page }) {
           "@context":"https://schema.org",
           "@type":"DiscussionForumPosting",
           "@id":"https://ricardo-sso.vercel.app/Toys",
-          "headline":"Is Schema.org still a thing?",
+          "headline":"What kind of toys do you like?",
           "author": {
             "@type": "Person",
             "name": "haecceity123"
