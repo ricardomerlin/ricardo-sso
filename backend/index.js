@@ -95,6 +95,8 @@ app.post('/toys', async (req, res) => {
       }
   };
 
+  console.log(postData)
+
   try {
       const response = await fetch('https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys', {
           method: 'POST',
