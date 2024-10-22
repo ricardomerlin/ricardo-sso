@@ -93,9 +93,8 @@ app.post('/toys', (req, res) => {
             }
         });
 
-        const data = response.json();
         if (!response.ok) {
-            return res.status(response.status).json(data);
+            return res.status(response.status).json(response);
         }
 
         res.status(201).json(data);
