@@ -24,6 +24,23 @@ function Toys({ page }) {
             data-spotim-module="spotim-launcher"
             data-seo-enabled="true">
         </script>
+        <script type="application/ld+json">
+        {JSON.stringify({
+          "@context":"https://schema.org",
+          "@type":"DiscussionForumPosting",
+          "@id":"https://ricardo-sso.vercel.app/Toys",
+          "headline":"Is Schema.org still a thing?",
+          "author": {
+            "@type": "Person",
+            "name": "haecceity123"
+          },
+          "interactionStatistic": {
+            "@type": "InteractionCounter",
+            "interactionType": "https://schema.org/CommentAction",
+            "userInteractionCount": 25
+          }
+        })}
+        </script>
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
@@ -32,23 +49,19 @@ function Toys({ page }) {
             <section className="dogs-section">
               <h2>The Loyal and Loving Nature of Toys</h2>
               <p>Explore the World of Imagination with Our Toy Collection!</p>
-
               <p>Unleash creativity and fun with our diverse range of toys designed for children of all ages! From cuddly plush animals to exciting action figures, each toy is crafted to inspire imaginative play and adventure.</p>
-
               <p><strong>Features:</strong></p>
               <ul>
                   <li><strong>Durable and Safe:</strong> Made with high-quality, non-toxic materials that ensure safety during playtime.</li>
                   <li><strong>Interactive Elements:</strong> Many toys come with lights, sounds, or movement features to engage and entertain.</li>
                   <li><strong>Educational Value:</strong> Encourage learning through play with toys that promote problem-solving, motor skills, and creativity.</li>
               </ul>
-
               <p><strong>Perfect for Every Occasion:</strong> Whether it's a birthday, holiday, or just because, our toys make the perfect gift! Watch as your child’s face lights up with joy and excitement.</p>
-
               <p><strong>Join the Adventure:</strong> With endless possibilities for play, our toys help create unforgettable memories. Explore our collection today and find the perfect companion for your child's adventures!</p>
             </section>
             <section className='right-section'>
               <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
-              <TopicTracker postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />;
+              <TopicTracker postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
               <Spotlight className='spotlight'/>
               <PopularInTheCommunity postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
             </section>
@@ -56,7 +69,7 @@ function Toys({ page }) {
           <Conversation postId='Toys' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/toys`} />
           <Reactions isSidebar='true' postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
         </main>
-        </OpenWebProvider>
+      </OpenWebProvider>
     </HelmetProvider>
   );
 }
