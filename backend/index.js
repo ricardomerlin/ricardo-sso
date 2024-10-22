@@ -82,7 +82,7 @@ app.post('/users', (req, res) => {
   });
 });
 
-app.post('/toys', async (req, res) => {
+app.post('/toys', (req, res) => {
     const postData = {
         "@context": "http://schema.org/",
         "@type": "Discussion-Forum-Posting",
@@ -94,7 +94,7 @@ app.post('/toys', async (req, res) => {
     };
 
     try {
-        const response = await fetch('https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys', {
+        const response = fetch('https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ app.post('/toys', async (req, res) => {
             body: JSON.stringify(postData)
         });
 
-        const data = await response.json();
+        const data = response.json();
         if (!response.ok) {
             return res.status(response.status).json(data);
         }
