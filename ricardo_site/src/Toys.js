@@ -2,8 +2,6 @@ import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Conversation, OpenWebProvider, PopularInTheCommunity, Spotlight, Reactions, TopicTracker } from '@open-web/react-sdk';
 import './styling/Dogs.css';
-import dog1 from './images/scootieFunny.jpg';
-import dog2 from './images/stevieFunny.jpg';
 
 function Toys({ page }) {
   return (
@@ -20,6 +18,12 @@ function Toys({ page }) {
         <meta property="article:tag" content="Figures" />
         <meta property="article:tag" content="Toys" />
         <meta property="article:author" content="Ricardo Merlin" />
+        <script 
+            async 
+            src="https://launcher.spot.im/spot/sp_5esW6NWZ"
+            data-spotim-module="spotim-launcher"
+            data-seo-enabled="true">
+        </script>
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
