@@ -47,7 +47,7 @@ function Toys({ page }) {
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
             <section className="dogs-section">
-              <h2>The Loyal and Loving Nature of Toys</h2>
+              <h1>What kind of toys do you like?</h1>
               <p>Explore the World of Imagination with Our Toy Collection!</p>
               <p>Unleash creativity and fun with our diverse range of toys designed for children of all ages! From cuddly plush animals to exciting action figures, each toy is crafted to inspire imaginative play and adventure.</p>
               <p><strong>Features:</strong></p>
