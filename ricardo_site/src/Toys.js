@@ -10,14 +10,17 @@ function Toys({ page }) {
       const response = await fetch('https://ricardo-sso.onrender.com/toys', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          headline: "Best Toys for Kids - A Fun Discussion"
+        })
       });
 
       if (!response.ok) {
         console.error('Failed to post data:', await response.text());
       } else {
-        console.log('Data posted successfully.');
+        console.log('Data posted successfully:', await response.json());
       }
     } catch (error) {
       console.error('Error posting data:', error);
