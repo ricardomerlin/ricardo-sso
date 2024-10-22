@@ -9,6 +9,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Page from './Page';
 import Profile from './Profile';
+import Toys from './Toys';
 import Debugging from './Debugging';
 import './styling/App.css';
 import { startTTH } from '@open-web/react-sdk';
@@ -95,7 +96,7 @@ function App() {
 
   console.log('USERTOKEN', localStorage.getItem('userToken'));
 
-  const pages = ['Robots', 'Food', 'Dogs', 'Cats'];
+  const pages = ['Robots', 'Food', 'Dogs', 'Cats', 'Toys'];
 
   const mappedPageLinks = () => {
     return pages.map((page, index) => (
@@ -126,6 +127,8 @@ function App() {
         case 'Cats':
           Component = Cats;
           break;
+        case 'Toys':
+          Component = Toys;
         default:
           Component = Page;
       }

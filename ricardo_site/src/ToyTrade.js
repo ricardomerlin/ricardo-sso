@@ -5,7 +5,7 @@ import './styling/Dogs.css';
 import dog1 from './images/scootieFunny.jpg';
 import dog2 from './images/stevieFunny.jpg';
 
-function Dogs({ page }) {
+function Toys({ page }) {
   return (
     <HelmetProvider>
       <Helmet>
@@ -15,10 +15,10 @@ function Dogs({ page }) {
         <meta property="og:description" content="Page focused on the dogs page" />
         <meta property="og:image" content="https://hips.hearstapps.com/hmg-prod/images/walking-shih-tzu-royalty-free-image-1682309398.jpg?crop=0.66635xw:1xh;center,top&resize=980:*" />
         <meta property="article:tag" content="Kind" />
-        <meta property="article:tag" content="Companion" />
-        <meta property="article:tag" content="Animals" />
-        <meta property="article:tag" content="Veterinary" />
-        <meta property="article:tag" content="Dogs" />
+        <meta property="article:tag" content="Cute" />
+        <meta property="article:tag" content="Action" />
+        <meta property="article:tag" content="Figures" />
+        <meta property="article:tag" content="Toys" />
         <meta property="article:author" content="Ricardo Merlin" />
       </Helmet>
       <OpenWebProvider spotId='sp_5esW6NWZ'>
@@ -62,17 +62,17 @@ function Dogs({ page }) {
             </section>
             <section className='right-section'>
               <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
-              <TopicTracker postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />;
+              <TopicTracker postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />;
               <Spotlight className='spotlight'/>
-              <PopularInTheCommunity postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />
+              <PopularInTheCommunity postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
             </section>
           </div>
-          <Conversation postId='Dogs' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/dogs`} />
-          <Reactions isSidebar='true' postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />
+          <Conversation postId='Toys' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/toys`} />
+          <Reactions isSidebar='true' postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
         </main>
         </OpenWebProvider>
     </HelmetProvider>
   );
 }
 
-export default Dogs;
+export default Toys;
