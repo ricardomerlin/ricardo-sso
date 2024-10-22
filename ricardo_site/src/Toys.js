@@ -4,6 +4,38 @@ import { Conversation, OpenWebProvider, PopularInTheCommunity, Spotlight, Reacti
 import './styling/Dogs.css';
 
 function Toys({ page }) {
+
+  useEffect(() => {
+    const postUserData = async () => {
+      if (user) {
+        const postData = {
+          authorName: user.displayName || 'Unknown User',
+          postName: 'What kind of toys do you like?'
+        };
+
+        try {
+          const response = await fetch('http://localhost:3001/toys', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+          });
+
+          if (!response.ok) {
+            console.error('Failed to post user data:', await response.text());
+          } else {
+            console.log('User data posted successfully.');
+          }
+        } catch (error) {
+          console.error('Error posting user data:', error);
+        }
+      }
+    };
+
+    postUserData();
+  }, [user]);
+
   return (
     <HelmetProvider>
       <Helmet>

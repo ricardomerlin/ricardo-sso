@@ -76,7 +76,6 @@ function Login({ handleLogin, checkLoading, loading }) {
           <button type="submit" className="login-button">Login</button>
         </form>
 
-        {/* Show the spinner when loading is true */}
         {loading && <div className="spinner"></div>}
 
         <div className="signup-prompt">

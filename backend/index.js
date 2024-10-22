@@ -83,13 +83,15 @@ app.post('/users', (req, res) => {
 });
 
 app.post('/toys', async (req, res) => {
+  const { authorName, postName } = req.body;
+
   const postData = {
       "@context": "http://schema.org/",
       "@type": "Discussion-Forum-Posting",
-      "name": "Best Toys for Kids - A Fun Discussion",
+      "name": postName || "Best Toys for Kids - A Fun Discussion",
       "author": {
           "@type": "Person",
-          "name": "Carol Smith"
+          "name": authorName || "Carol Smith"
       }
   };
 
