@@ -101,7 +101,7 @@ app.post('/toys', async (req, res) => {
       if (!response.ok) {
           return res.status(response.status).send(data);
       }
-
+      console.log(data)
       res.send(data)
   } catch (error) {
       console.error('Error posting to discussion forum:', error);

@@ -14,6 +14,8 @@ function Toys({ page }) {
         }
       });
 
+      console.log(response.body)
+
       if (!response.ok) {
         console.error('Failed to post data:', await response.text());
       } else {
