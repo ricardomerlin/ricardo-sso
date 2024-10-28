@@ -117,7 +117,7 @@ app.post('/start-handshake', async (req, res) => {
   console.log(code_a);
 
   try {
-    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name='I HAVE UPDATED THE USER'&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&private_profile=${userToken.privateProfile}`, {
+    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?user_metadata=ewogICAgImlzX3N1YnNjcmliZXIiOiB0cnVlCn0=?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name='I HAVE UPDATED THE USER'&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&private_profile=${userToken.privateProfile}`, {
       method: 'GET',
       headers: {
         'accept': 'application/json',
