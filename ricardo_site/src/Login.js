@@ -28,7 +28,7 @@ function Login({ handleLogin, checkLoading, loading }) {
             body: JSON.stringify({ username, password }),
           });
           const data = await response.json();
-
+          console.log('I AM ABOUT TO SET SOME TOKENS')
           if (data.token) {
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
