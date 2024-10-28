@@ -66,7 +66,7 @@ function Toys({ page }) {
         })}
         </script>
       </Helmet>
-      <OpenWebProvider spotId='sp_5esW6NWZ'>
+      {/* <OpenWebProvider spotId='sp_5esW6NWZ'> */}
         <main>
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
@@ -86,15 +86,16 @@ function Toys({ page }) {
             </section>
             <section className='right-section'>
               <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
-              <TopicTracker postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
-              <Spotlight className='spotlight'/>
-              <PopularInTheCommunity postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
+              <div data-spotim-module="default"></div>
+              {/* <TopicTracker postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' /> */}
+              {/* <Spotlight className='spotlight'/> */}
+              {/* <PopularInTheCommunity postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' /> */}
             </section>
           </div>
-          <Conversation postId='Toys' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/toys`} />
-          <Reactions isSidebar='true' postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' />
+          {/* <Conversation postId='Toys' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/toys`} /> */}
+          {/* <Reactions isSidebar='true' postId='Toys' postUrl='https://ricardo-sso.vercel.app/toys' /> */}
         </main>
-      </OpenWebProvider>
+      {/* </OpenWebProvider> */}
     </HelmetProvider>
   );
 }
