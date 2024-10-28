@@ -21,7 +21,7 @@ function Robots() {
           <meta property="article:tag" content="Automation" />
           <meta property="article:author" content="Ricardo Merlin" />
         </Helmet>
-        <OpenWebProvider spotId='sp_5esW6NWZ'>
+        <OpenWebProvider spotId='sp_vzzwOhsE'>
         <main>
           <div className="robots-container">
             <section className="robots-section">

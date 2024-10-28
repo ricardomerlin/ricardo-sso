@@ -20,7 +20,7 @@ function Cats({ page }) {
         <meta property="article:tag" content="Cats" />
         <meta property="article:author" content="Ricardo Merlin" />
       </Helmet>
-      <OpenWebProvider spotId='sp_5esW6NWZ'>
+      <OpenWebProvider spotId='sp_vzzwOhsE'>
         <main>
           <div className="cats-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
