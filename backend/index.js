@@ -122,7 +122,7 @@ app.post('/start-handshake', async (req, res) => {
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
-        'x-spotim-sso-access-token': '03241028oswzVM.33383836633133322d353133652d346432322d623666302d3366663538336136',
+        'x-spotim-sso-access-token': ssoToken,
       }
     });
 
