@@ -13,7 +13,7 @@ const secretKey = process.env.SECRET_KEY;
 const ssoToken = process.env.SSO_TOKEN;
 
 console.log(secretKey)
-console.log(ssoToken)
+console.log('HERE IS THE SSO TOKEN THAT YOU ARE USING:',ssoToken)
 
 const corsOptions = {
     origin: 'https://ricardo-sso.vercel.app',
