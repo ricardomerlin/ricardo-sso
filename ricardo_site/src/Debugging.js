@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './styling/Debugging.css';
-import noPK from './images/noPK.png'
+import noPK from './images/noPk.png'
 
 function Debugging({  }) {
 

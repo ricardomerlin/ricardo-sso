@@ -23,6 +23,8 @@ function App() {
   const profileRef = useRef(null);
   const navigate = useNavigate();
 
+  // window.__SPOTIM_ADS_DISABLED__ = true
+
   useEffect(() => {
     const storedUserToken = localStorage.getItem('userToken');
     if (storedUserToken) {
@@ -133,7 +135,7 @@ function App() {
         default:
           Component = Page;
       }
-      return <Route key={index} path={`/${page}`} element={<Component />} />;
+      return <Route key={index} path={`/${page}`} element={<Component loggedIn={loggedIn}/>} />;
     });
   };
 

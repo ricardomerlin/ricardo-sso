@@ -43,7 +43,7 @@ function Toys({ page }) {
         <meta property="article:author" content="Ricardo Merlin" />
         <script 
             async 
-            src="https://launcher.spot.im/spot/sp_vzzwOhsE"
+            src="https://launcher.spot.im/spot/sp_5esW6NWZ"
             data-spotim-module="spotim-launcher"
             data-seo-enabled="true">
         </script>
@@ -66,7 +66,7 @@ function Toys({ page }) {
         })}
         </script>
       </Helmet>
-      {/* <OpenWebProvider spotId='sp_vzzwOhsE'> */}
+      {/* <OpenWebProvider spotId='sp_5esW6NWZ'> */}
         <main>
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>

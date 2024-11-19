@@ -5,7 +5,8 @@ import './styling/Dogs.css';
 import dog1 from './images/scootieFunny.jpg';
 import dog2 from './images/stevieFunny.jpg';
 
-function Dogs({ page }) {
+function Dogs({ loggedIn }) {
+
   return (
     <HelmetProvider>
       <Helmet>
@@ -20,8 +21,9 @@ function Dogs({ page }) {
         <meta property="article:tag" content="Veterinary" />
         <meta property="article:tag" content="Dogs" />
         <meta property="article:author" content="Ricardo Merlin" />
+        <meta name="spotim-ads" content="disable-all" />
       </Helmet>
-      <OpenWebProvider spotId='sp_vzzwOhsE'>
+      <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
@@ -65,6 +67,7 @@ function Dogs({ page }) {
               <TopicTracker postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />;
               <Spotlight className='spotlight'/>
               <PopularInTheCommunity postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />
+              <div data-spotim-module="messages-count" data-post-id="Dogs"></div>
             </section>
           </div>
           <Conversation postId='Dogs' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/dogs`} />

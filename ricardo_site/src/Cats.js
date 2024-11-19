@@ -5,7 +5,7 @@ import './styling/Cats.css';
 import cat1 from './images/catFunny.avif';
 import cat2 from './images/cuteCat1.jpeg';
 
-function Cats({ page }) {
+function Cats({ loggedIn }) {
   return (
     <HelmetProvider>
       <Helmet>
@@ -20,7 +20,7 @@ function Cats({ page }) {
         <meta property="article:tag" content="Cats" />
         <meta property="article:author" content="Ricardo Merlin" />
       </Helmet>
-      <OpenWebProvider spotId='sp_vzzwOhsE'>
+      <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
           <div className="cats-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>

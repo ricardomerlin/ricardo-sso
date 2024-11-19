@@ -5,7 +5,8 @@ import "./styling/Robots.css";
 import teslaBot from './images/teslarobot.webp';
 import robotFace from './images/robot1.jpg';
 
-function Robots() {
+function Robots({ loggedIn }) {
+
   return (
     <HelmetProvider>
         <Helmet>
@@ -21,7 +22,7 @@ function Robots() {
           <meta property="article:tag" content="Automation" />
           <meta property="article:author" content="Ricardo Merlin" />
         </Helmet>
-        <OpenWebProvider spotId='sp_vzzwOhsE'>
+        <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
           <div className="robots-container">
             <section className="robots-section">
@@ -53,7 +54,7 @@ function Robots() {
               <PopularInTheCommunity postId='Robots' postUrl='https://ricardo-sso.vercel.app/robots' />
             </section>
           </div>
-          <Conversation postId='Robots' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/robots`} />
+          <Conversation postId='Robots' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/robots`} data-read-only={!loggedIn}/>
           <Reactions isSidebar='true' postId='Robots' postUrl='https://ricardo-sso.vercel.app/robots' />
         </main>
         </OpenWebProvider>
