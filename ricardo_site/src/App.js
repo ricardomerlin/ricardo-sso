@@ -23,8 +23,6 @@ function App() {
   const profileRef = useRef(null);
   const navigate = useNavigate();
 
-  // window.__SPOTIM_ADS_DISABLED__ = true
-
   useEffect(() => {
     const storedUserToken = localStorage.getItem('userToken');
     if (storedUserToken) {
