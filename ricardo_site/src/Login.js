@@ -12,8 +12,6 @@ function Login({ handleLogin, checkLoading, loading }) {
     checkLoading(true);
   };
 
-  console.log(loading)
-
   useEffect(() => {
     const loginAttempt = async () => {
       if (loading === true) {
