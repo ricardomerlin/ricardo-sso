@@ -83,7 +83,7 @@ app.post('/users', (req, res) => {
 });
 
 app.post('/toys', async (req, res) => {
-  const apiUrl = 'https://seo.spot.im/v2/discussion-forum-posting/sp_5esW6NWZ/Toys';
+  const apiUrl = 'https://seo.spot.im/v2/discussion-forum-posting/sp_UXF0qHNN/Toys';
   
   const requestOptions = {
       method: 'POST',
@@ -112,12 +112,13 @@ app.post('/toys', async (req, res) => {
 
 app.post('/start-handshake', async (req, res) => {
   const { code_a, userToken } = req.body;
-
+  console.log('HANDSHAKE WAS STARTEDDDDDDDD')
   console.log(req.body.code_a);
   console.log(code_a);
+  console.log(userToken)
   
   try {
-    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&user_metadata=ewogICAgImlzX3N1YnNjcmliZXIiOiB0cnVlCn0==&private_profile=${userToken.privateProfile}`, {
+    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_UXF0qHNN&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&user_metadata=ewogICAgImlzX3N1YnNjcmliZXIiOiB0cnVlCn0==&private_profile=${userToken.privateProfile}`, {
       method: 'GET',
       headers: {
         'accept': 'application/json',
@@ -164,7 +165,7 @@ app.post('/login', (req, res) => {
           email: user.email,
           name: user.name,
           displayName: user.display_name,
-          email_verified: user.email_verified,
+          email_verified: true,
           imageURL: user.image_url,
           privateProfile: user.private_profile,
           is_blocked: user.is_blocked

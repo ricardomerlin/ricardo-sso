@@ -7,7 +7,7 @@ function Toys({ page }) {
 
   const postToysData = async () => {
     try {
-      const response = await fetch('https://ricardo-sso.onrender.com/toys', {
+      const response = await fetch('http://localhost:3001/toys', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function Toys({ page }) {
         <meta property="article:author" content="Ricardo Merlin" />
         <script 
             async 
-            src="https://launcher.spot.im/spot/sp_5esW6NWZ"
+            src="https://launcher.spot.im/spot/sp_UXF0qHNN"
             data-spotim-module="spotim-launcher"
             data-seo-enabled="true">
         </script>
@@ -66,7 +66,7 @@ function Toys({ page }) {
         })}
         </script>
       </Helmet>
-      {/* <OpenWebProvider spotId='sp_5esW6NWZ'> */}
+      {/* <OpenWebProvider spotId='sp_UXF0qHNN'> */}
         <main>
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>

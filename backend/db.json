@@ -100,6 +100,66 @@
       "email_verified": false,
       "image_url": "https://resizing.flixster.com/dU9PJI2a82co9Zv8gwiJhfGkzVw=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/487578_v9_ba.jpg",
       "private_profile": false
+    },
+    {
+      "id": "2c6a81cf-dab0-43a7-98f4-1c4853a68d36",
+      "name": "RicPoo",
+      "email": "xaditep269@lofiey.com",
+      "username": "RicPoo",
+      "password": "OpenWeb123!",
+      "display_name": "RicPoo",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "e46de0ac-c5e8-471e-8718-94138c9c4932",
+      "name": "TestingRic",
+      "email": "xaditep269@lofiey.com",
+      "username": "TestingRic",
+      "password": "OpenWeb123!",
+      "display_name": "TestingRic",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "e427f5f8-bcd3-46b0-b50c-af04a21f1e06",
+      "name": "TestRicardo",
+      "email": "ric@gmail.com",
+      "username": "rictesty",
+      "password": "Openweb123!",
+      "display_name": "rictesty",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "2ea41f93-5991-41b9-820a-4ae5fa8f82b0",
+      "name": "RicardoTest",
+      "email": "r@gmail.com",
+      "username": "RicardoTest",
+      "password": "Openweb123!",
+      "display_name": "RicardoTest",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "de33ce89-c60b-4804-80a7-83740f6523b8",
+      "name": "RicTesty",
+      "email": "lojomav738@owube.com",
+      "username": "RicTesty",
+      "password": "Openweb123!",
+      "display_name": "RicTesty",
+      "email_verified": false,
+      "image_url": "https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/cola-0247.jpg?crop=0.668xw:1.00xh;0.151xw,0&resize=980:*",
+      "private_profile": false,
+      "privateProfile": false
     }
   ]
 }
