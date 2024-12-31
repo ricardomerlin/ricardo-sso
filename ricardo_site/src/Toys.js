@@ -7,7 +7,7 @@ function Toys({ page }) {
 
   const postToysData = async () => {
     try {
-      const response = await fetch('https://ricardo-sso.onrender.com/toys', {
+      const response = await fetch('http://localhost:3001/toys', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

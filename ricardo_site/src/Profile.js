@@ -26,7 +26,7 @@ function Profile() {
 
     const handleSaveChanges = async () => {
         try {
-            const response = await fetch(`https://ricardo-sso.onrender.com/users/${userDetails.id}`, {
+            const response = await fetch(`http://localhost:3001/users/${userDetails.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ function Profile() {
         try {
             setIsVerifying(true);
 
-            const response = await fetch(`https://ricardo-sso.onrender.com/send-verification-email`, {
+            const response = await fetch(`http://localhost:3001/send-verification-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
