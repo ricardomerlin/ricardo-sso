@@ -22,7 +22,7 @@ function Food({ loggedIn }) {
           <meta property="article:tag" content="Vegan" />
           <meta property="article:author" content="Ricardo Merlin" />
         </Helmet>
-        <OpenWebProvider spotId='sp_UXF0qHNN'>
+        <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
         <div className="food-container">
           <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>

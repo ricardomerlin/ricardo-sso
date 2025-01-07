@@ -23,7 +23,7 @@ function Dogs({ loggedIn }) {
         <meta property="article:author" content="Ricardo Merlin" />
         <meta name="spotim-ads" content="disable-all" />
       </Helmet>
-      <OpenWebProvider spotId='sp_UXF0qHNN'>
+      <OpenWebProvider spotId='sp_5esW6NWZ'>
         <main>
           <div className="dogs-container">
             <div data-openweb-ad="" data-row="1" data-column="1" data-page-type="independent_ad_hp"></div>
