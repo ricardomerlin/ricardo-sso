@@ -160,6 +160,90 @@
       "image_url": "https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/cola-0247.jpg?crop=0.668xw:1.00xh;0.151xw,0&resize=980:*",
       "private_profile": false,
       "privateProfile": false
+    },
+    {
+      "id": "9ea088ee-f59b-4e41-8944-19a6bb58d1ea",
+      "name": "NoUsername1",
+      "email": "nouser@gmail.com",
+      "username": "NoUsername1",
+      "password": "nouser@gmail.com",
+      "display_name": "NoUsername1",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "21d53372-f5ef-478c-a538-34b7d8471eaf",
+      "name": "I Dont Have a Username",
+      "email": "rop@gmail.com",
+      "username": "I am missing a username",
+      "password": "Openweb123!",
+      "display_name": "I am missing a username",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "675a0a45-c3e8-481c-b58a-f1547601e09d",
+      "name": "Filling name",
+      "email": "Fillling email",
+      "username": "Filling username",
+      "password": "Openweb123!",
+      "display_name": "Filling username",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "88090704-88f1-4163-956b-a4845acd5ece",
+      "name": "Here is name",
+      "email": "name@gmail.com",
+      "username": "Here is username",
+      "password": "Openweb123!",
+      "display_name": "Here is username",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "d9a6b9ea-4c47-4e0d-ac5d-f11c15538a84",
+      "name": "NoUsernameAndEmail",
+      "email": "test@ricardo.com",
+      "username": "StillNoUsernameAndEmail",
+      "password": "Openweb123!",
+      "display_name": "StillNoUsernameAndEmail",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "98f4a854-087d-4ffb-a531-f59cc30f74aa",
+      "name": "NoUserOrDisplay",
+      "email": "non@ricardo.com",
+      "username": "NoUserOrDisplay",
+      "password": "Openweb123!",
+      "display_name": "NoUserOrDisplay",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
+    },
+    {
+      "id": "5e743d6d-91d9-4a0f-bbe7-b4d497a52496",
+      "name": "nono",
+      "email": "gdfasdf@gmail.com",
+      "username": "nono",
+      "password": "Openweb123!",
+      "display_name": "nono",
+      "email_verified": false,
+      "image_url": "www.google.com",
+      "private_profile": false,
+      "privateProfile": false
     }
   ]
 }

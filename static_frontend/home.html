@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Home Page</title>
+    <script
+        async 
+        src="https://launcher.spot.im/spot/sp_5esW6NWZ"
+        data-post-id="testing"
+    >
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f1e9e7;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .cta-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-tester">
+        <form class="login-form">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit">
+        </form>
+        <button class="clearTokens" onclick="clearTokens()">Clear Tokens</button>
+    </div>
+    <div class="container">
+        <h1>Welcome to Ricardo's SSO Site v2</h1>
+        <p>I am testing the SSO flow here</p>
+        <a href="#" class="cta-button">Learn More</a>
+        <div data-spotim-module="conversation"></div>
+    </div>
+    <script src="js/home.js"></script>
+</body>
+</html>

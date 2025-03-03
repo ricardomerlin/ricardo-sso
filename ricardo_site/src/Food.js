@@ -62,7 +62,7 @@ function Food({ loggedIn }) {
               <PopularInTheCommunity postId='Food' postUrl='https://ricardo-sso.vercel.app/food' />
             </section>
           </div>
-          <Conversation postId='Food' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/food`} data-social-reviews='true' />
+          <Conversation postId='Food' className='owConv' articleTags={['tag1','tag2','tag3']} data-social-reviews='true' />
           <Reactions isSidebar='true' postId='Food' postUrl='https://ricardo-sso.vercel.app/food' />
         </main>
         </OpenWebProvider>

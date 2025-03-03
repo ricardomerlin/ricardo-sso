@@ -70,7 +70,7 @@ function Dogs({ loggedIn }) {
               <div data-spotim-module="messages-count" data-post-id="Dogs"></div>
             </section>
           </div>
-          <Conversation postId='Dogs' className='owConv' articleTags={['tag1','tag2','tag3']} postUrl={`https://ricardo-sso.vercel.app/dogs`} />
+          <Conversation postId='dog' className='owConv' articleTags={['tag1','tag2','tag3']} />
           <Reactions isSidebar='true' postId='Dogs' postUrl='https://ricardo-sso.vercel.app/dogs' />
         </main>
         </OpenWebProvider>

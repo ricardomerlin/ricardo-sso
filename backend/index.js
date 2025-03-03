@@ -110,15 +110,17 @@ app.post('/toys', async (req, res) => {
 });
 
 
+// app.post('/start-handshake', (req, res) => {
+//     console.log('Received data:', req.body);
+//     res.json({ message: 'Received' });
+// });
+
+
 app.post('/start-handshake', async (req, res) => {
-  const { code_a, userToken } = req.body;
-  console.log('HANDSHAKE WAS STARTEDDDDDDDD')
-  console.log(req.body.code_a);
-  console.log(code_a);
-  console.log(userToken)
+  const { code_a, user } = req.body;
   
   try {
-    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${userToken.id}&spot_id=sp_5esW6NWZ&user_name=${userToken.username}&display_name=${userToken.displayName}&email=${userToken.email}&email_verified=${userToken.email_verified}&image_url=${userToken.imageURL}&user_metadata=ewogICAgImlzX3N1YnNjcmliZXIiOiB0cnVlCn0==&private_profile=${userToken.privateProfile}`, {
+    const response = await fetch(`https://www.spot.im/api/sso/v1/register-user?code_a=${req.body.code_a}&access_token=${ssoToken}&primary_key=${req.body.user.id}&spot_id=sp_5esW6NWZ&email=${req.body.user.email}&user_name=${req.body.user.username}&email_verified=${req.body.user.email_verified}&image_url=${req.body.user.imageURL}&private_profile=${req.body.user.privateProfile}`, {
       method: 'GET',
       headers: {
         'accept': 'application/json',
@@ -128,10 +130,8 @@ app.post('/start-handshake', async (req, res) => {
     });
 
     const code_b = await response.text();
-    console.log('HERE IS THE CODEB:', code_b);
 
     res.send(code_b);
-    console.log('codeB was sent to FE');
   } catch (error) {
     console.error('Error fetching code_b:', error);
     res.status(500).send('Error occurred');
@@ -154,9 +154,7 @@ app.post('/login', (req, res) => {
       }
   
       const token = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
-  
-      console.log('User logged in:', user);
-  
+    
       res.json({
         token,
         user: {
