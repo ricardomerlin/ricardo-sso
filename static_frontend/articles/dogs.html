@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogs</title>
+    <script
+        async 
+        src="https://launcher.spot.im/spot/sp_5esW6NWZ"
+        data-post-id="dogs"
+    ></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            /* height: 100vh; */
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100%;
+            background: #1e1e2e;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 15px;
+            text-align: center;
+            color: #b0b0c3;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .articles-dropdown {
+            display: none;
+            position: absolute;
+            left: 200px;
+            top:250px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            width: 150px;
+        }
+
+        .articles-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .articles-dropdown ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .articles-dropdown ul li a:hover {
+            background: #f0f0f0;
+        }
+
+        .articles:hover .articles-dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ricardo SSO</h2>
+        <ul>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../signup.html">Signup</a></li>
+            <li><a href="../profile.html">Profile</a></li>
+            <li class="articles">
+                <a>Articles</a>
+                <div class="articles-dropdown">
+                    <ul>
+                        <li><a href="cats.html">Cats</a></li>
+                        <li><a href="dogs.html">Dogs</a></li>
+                        <li><a href="parks.html">Parks</a></li>
+                        <li><a href="robots.html">Robots</a></li>
+                    </ul>
+                </div>
+            </li>        
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>The World of Dogs: Man’s Best Friend</h1>
+        <p><em>By Ricardo</em></p>
+        
+        <img src="images/dog-hero.jpg" alt="A happy dog running in a field" class="article-image">
+
+        <p>Dogs have been by our side for thousands of years, forming an unbreakable bond with humans. Whether curled up at our feet or running freely through fields, they bring joy, loyalty, and companionship like no other. Their ability to understand emotions and respond with unconditional love makes them more than just pets—they are family.</p>
+
+        <h2>A Companion Through History</h2>
+        <p>Dogs have a long and fascinating history, dating back over 20,000 years. Once wild wolves, they gradually became domesticated as early humans found value in their protection, hunting skills, and companionship. Over generations, selective breeding shaped dogs into the diverse breeds we know today. Ancient civilizations revered them, often depicting them in art and mythology. From the loyal hounds of Egyptian pharaohs to the courageous war dogs of the Roman Empire, their significance in human history is undeniable.</p>
+
+        <img src="images/dog-history.jpg" alt="Ancient depiction of a dog" class="article-image">
+
+        <h2>The Unique Bond Between Dogs and Humans</h2>
+        <p>What sets dogs apart is their remarkable ability to connect with people. They sense our moods, comfort us when we’re down, and celebrate with us in moments of joy. Studies have shown that simply being around dogs can reduce stress, lower blood pressure, and improve overall well-being. Their unwavering loyalty and affection create an emotional connection that few other animals can offer.</p>
+
+        <blockquote>
+            "Dogs are not our whole life, but they make our lives whole." – Roger Caras
+        </blockquote>
+
+        <h2>The Many Faces of Dogs</h2>
+        <p>With over 300 recognized breeds, dogs come in all shapes, sizes, and temperaments. Some, like the Golden Retriever, are known for their friendly and outgoing nature, making them perfect family pets. Others, like the German Shepherd, are highly intelligent and excel in roles such as search and rescue or law enforcement. The energetic and playful Labrador Retriever is always ready for an adventure, while the affectionate Bulldog prefers a relaxed, easygoing lifestyle. No matter the breed, each dog brings something special into the lives of those who care for them.</p>
+
+        <img src="images/dog-breeds.jpg" alt="Different dog breeds sitting together" class="article-image">
+
+        <h2>What It Means to Care for a Dog</h2>
+        <p>Owning a dog is a rewarding experience, but it also comes with great responsibility. Providing proper nutrition, regular exercise, and routine veterinary care ensures a dog’s health and happiness. Grooming, training, and socialization are just as important, helping dogs develop good behavior and a strong bond with their owners. A well-cared-for dog is a happy dog, and in return, they offer a lifetime of love and companionship.</p>
+
+        <img src="images/dog-care.jpg" alt="A dog being groomed" class="article-image">
+
+        <h2>The Unbreakable Bond</h2>
+        <p>From working dogs who assist people with disabilities to beloved pets who brighten our days, dogs are truly extraordinary. They remind us of the simple joys in life—loyalty, love, and living in the moment. No matter where we go, they are always there, tails wagging and hearts full of devotion. For as long as humans exist, dogs will remain our most faithful companions.</p>
+
+        <p>Want to learn more? <a href="profile.html">Check out our profile page</a> for more pet-related content!</p>
+        <div data-spotim-module="conversation">Hello</div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

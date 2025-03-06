@@ -1,0 +1,29 @@
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+#profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #6a11cb;
+}
+p {
+    font-size: 16px;
+    color: #333;
+}
+.profile-label {
+    font-weight: bold;
+    color: #6a11cb;
+}
+.no-profile {
+    color: red;
+    font-weight: bold;
+}

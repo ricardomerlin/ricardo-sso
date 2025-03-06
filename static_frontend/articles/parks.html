@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Parks</title>
+    <script async src="https://launcher.spot.im/spot/sp_5esW6NWZ" data-post-id="parks"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            /* height: 100vh; */
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100%;
+            background: #1e1e2e;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 15px;
+            text-align: center;
+            color: #b0b0c3;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .container {
+            margin-left: 220px;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .articles-dropdown {
+            display: none;
+            position: absolute;
+            left: 200px;
+            top:250px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            width: 150px;
+        }
+
+        .articles-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .articles-dropdown ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .articles-dropdown ul li a:hover {
+            background: #f0f0f0;
+        }
+
+        .articles:hover .articles-dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ricardo SSO</h2>
+        <ul>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../signup.html">Signup</a></li>
+            <li><a href="../profile.html">Profile</a></li>
+            <li class="articles">
+                <a>Articles</a>
+                <div class="articles-dropdown">
+                    <ul>
+                        <li><a href="cats.html">Cats</a></li>
+                        <li><a href="dogs.html">Dogs</a></li>
+                        <li><a href="parks.html">Parks</a></li>
+                        <li><a href="robots.html">Robots</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>National Parks: Nature’s Greatest Treasures</h1>
+        <p><em>By Ricardo</em></p>
+        
+        <img src="images/park-hero.jpg" alt="A breathtaking national park landscape" class="article-image">
+
+        <p>National parks offer a glimpse into the untouched beauty of nature. With towering mountains, lush forests, and stunning wildlife, they provide a sanctuary for both people and animals.</p>
+
+        <h2>The Importance of Conservation</h2>
+        <p>National parks were created to protect the most breathtaking landscapes on Earth. Places like Yellowstone, Yosemite, and the Grand Canyon showcase the raw beauty of the world while preserving ecosystems for future generations.</p>
+
+        <img src="images/park-history.jpg" alt="A historic view of a national park" class="article-image">
+
+        <h2>Why People Love National Parks</h2>
+        <p>Hiking through forests, camping under the stars, or witnessing waterfalls in their natural glory—national parks provide a sense of adventure and serenity. They remind us of the importance of protecting the environment.</p>
+
+        <blockquote>
+            "In every walk with nature, one receives far more than he seeks." – John Muir
+        </blockquote>
+
+        <p>Whether you're an experienced adventurer or just looking to escape the city, national parks offer something for everyone.</p>
+
+        <p>Want to explore more? <a href="profile.html">Check out our profile page</a> for travel-related content!</p>
+        <div data-spotim-module="conversation"></div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

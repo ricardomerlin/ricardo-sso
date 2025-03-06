@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/container.css">
+
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Ricardo SSO</h2>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+            <li class="articles">
+                <a>Articles</a>
+                <div class="articles-dropdown">
+                    <ul>
+                        <li><a href="articles/cats.html">Cats</a></li>
+                        <li><a href="articles/dogs.html">Dogs</a></li>
+                        <li><a href="articles/parks.html">Parks</a></li>
+                        <li><a href="articles/robots.html">Robots</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Profile</h2>
+        <div id="profileInfo">
+            <img id="profileImage" src="" alt="Profile Image">
+            <p><span class="profile-label">Name:</span> <span id="profileName"></span></p>
+            <p><span class="profile-label">Username:</span> <span id="profileUsername"></span></p>
+            <p><span class="profile-label">Email:</span> <span id="profileEmail"></span></p>
+            <p><span class="profile-label">Email Verified:</span> <span id="profileEmailVerified"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (user) {
+                document.getElementById("profileImage").src = user.imageURL;
+                document.getElementById("profileName").textContent = user.name;
+                document.getElementById("profileUsername").textContent = user.username;
+                document.getElementById("profileEmail").textContent = user.email;
+                document.getElementById("profileEmailVerified").textContent = user.email_verified ? "Yes" : "No";
+            } else {
+                document.getElementById("profileInfo").innerHTML = "<p class='no-profile'>No profile information available.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
